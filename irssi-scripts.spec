@@ -1,7 +1,7 @@
 # TODO:
-# - longest descriptions
+# - longer descriptions
 Summary:	Irssi scripts pack
-Summary(pl):	Zestaw skryptów do Irssi.
+Summary(pl):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.2
 Release:	1.1
@@ -10,9 +10,9 @@ Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/irssi-scripts/%{name}.tar.gz
 # Source0-md5:	e371d82e2c2074ae3aabec70d5a69d3a
 Requires:	irssi
+Obsoletes:	irssi-script
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Obsoletes:	irssi-script
 
 %define		_scriptdir	%{_prefix}/share/irssi/scripts
 
