@@ -3,13 +3,12 @@
 Summary:	Irssi scripts pack
 Summary(pl):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
-Version:	0.2
-Release:	3
+Version:	0.3
+Release:	1
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/irssi-scripts/%{name}.tar.gz
-# Source0-md5:	6aabbce8a4debdc3e6dc0d6c8c618d2b
-# Source0-size:	29974
+# Source0-md5:	7b1e327ea1ceb4cc7007bc3a33ade26a
 Requires:	irssi
 Obsoletes:	irssi-script
 BuildArch:	noarch
