@@ -1,22 +1,22 @@
 Summary:	Irssi scripts pack
 Summary(pl):	Zestaw skryptów do Irssi.
 Name:		irssi-scripts
-Version:	0.1
-Release:	0.1
+Version:	0.2
+Release:	1
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/irssi-scripts/%{name}.tar.gz
-# Source0-md5:	a9e7bbcc841a27984394a09d0f11edf1
+# Source0-md5:	faa3abb1d5fdb715917beb2f2e1d2adb
 Requires:	irssi
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Obsoletes:      irssi-script
+Obsoletes:	irssi-script
 
 %define		_scriptdir	%{_prefix}/share/irssi/scripts
 
 %description
 Irssi scripts pack.
- 
+
 %description -l pl
 Zestaw skryptów do Irssi.
 
@@ -43,10 +43,66 @@ Provides:	irssi-script
 Obsoletes:	irssi-scripts
 
 %description -n irssi-script-ziew
-forwardfix ziew.
+ziew script.
 
 %description -n irssi-script-ziew -l pl
 Skrypt ziew.
+
+%package -n irssi-script-seen
+Summary:	seen script
+Summary(pl):	Skrypt seen
+Group:		Applications/Communications
+Requires:	irssi
+Provides:	irssi-script
+Obsoletes:	irssi-scripts
+
+%description -n irssi-script-seen
+seen scripts.
+
+%description -n irssi-script-seen -l pl
+Skrypt seen.
+
+%package -n irssi-script-cp2iso
+Summary:	cp2iso script
+Summary(pl):	Skrypt cp2iso
+Group:		Applications/Communications
+Requires:	irssi
+Provides:	irssi-script
+Obsoletes:	irssi-scripts
+
+%description -n irssi-script-cp2iso
+cp2iso script.
+
+%description -n irssi-script-cp2iso -l pl
+Skrypt cp2iso.
+
+%package -n irssi-script-keepnick
+Summary:	keepnick script
+Summary(pl):	Skrypt keepnick
+Group:		Applications/Communications
+Requires:	irssi
+Provides:	irssi-script
+Obsoletes:	irssi-scripts
+
+%description -n irssi-script-keepnick
+keepnick script.
+
+%description -n irssi-script-keepnick -l pl
+Skrypt keepnick.
+
+%package -n irssi-script-people
+Summary:	people script
+Summary(pl):	Skrypt people
+Group:		Applications/Communications
+Requires:	irssi
+Provides:	irssi-script
+Obsoletes:	irssi-scripts
+
+%description -n irssi-script-people
+people script.
+
+%description -n irssi-script-people -l pl
+Skrypt people.
 
 %prep
 %setup -q -n %{name}
@@ -71,3 +127,19 @@ rm -rf $RPM_BUILD_ROOT
 %files -n irssi-script-ziew
 %defattr(644,root,root,755)
 %{_scriptdir}/ziew.pl
+
+%files -n irssi-script-seen
+%defattr(644,root,root,755)
+%{_scriptdir}/seen.pl
+
+%files -n irssi-script-cp2iso
+%defattr(644,root,root,755)
+%{_scriptdir}/cp2iso.pl
+
+%files -n irssi-script-keepnick
+%defattr(644,root,root,755)
+%{_scriptdir}/keepnick.pl
+
+%files -n irssi-script-people
+%defattr(644,root,root,755)
+%{_scriptdir}/people.pl
