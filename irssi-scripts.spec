@@ -8,7 +8,7 @@ Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/irssi-scripts/%{name}.tar.gz
 # Source0-md5:	a9e7bbcc841a27984394a09d0f11edf1
 Requires:	irssi
-Obsoletes:	irssi-skin
+Obsoletes:	irssi-scripts
 
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
