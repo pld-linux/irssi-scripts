@@ -1,3 +1,5 @@
+# TODO:
+# - longest descriptions
 Summary:	Irssi scripts pack
 Summary(pl):	Zestaw skryptów do Irssi.
 Name:		irssi-scripts
