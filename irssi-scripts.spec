@@ -26,6 +26,7 @@ Zestaw skryptów do Irssi.
 Summary:	forwardfix script
 Summary(pl):	Skrypt forwardfix
 Group:		Applications/Communications
+URL:		http://ontario.icpnet.pl/~agaran/forwardfix.pl
 Requires:	irssi
 Provides:	irssi-script
 Obsoletes:	irssi-scripts
