@@ -40,6 +40,7 @@ Skrypt forwardfix.
 Summary:	ziew script
 Summary(pl):	Skrypt ziew
 Group:		Applications/Communications
+URL:		http://gj.pointblue.com.pl/projects/ziew/
 Requires:	irssi
 Provides:	irssi-script
 Obsoletes:	irssi-scripts
