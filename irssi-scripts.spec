@@ -8,7 +8,6 @@ Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/irssi-scripts/%{name}.tar.gz
 # Source0-md5:	a9e7bbcc841a27984394a09d0f11edf1
 Requires:	irssi
-Obsoletes:	irssi-script
 
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -25,8 +24,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Summary:	forwardfix script
 Summary(pl):	Skrypt forwardfix
 Group:		Applications/Communications
-Provides:	irssi-script
-Obsoletes:	irssi-scripts
+Requires:	irssi
+Conflicts:	irssi-scripts
 
 %description -n irssi-script-forwardfix
 forwardfix script.
@@ -38,8 +37,8 @@ Skrypt forwardfix.
 Summary:	ziew script
 Summary(pl):	Skrypt ziew
 Group:		Applications/Communications
-Provides:	irssi-script
-Obsoletes:	irssi-scripts
+Requires:	irssi
+Conflicts:	irssi-scripts
 
 %description -n irssi-script-ziew
 forwardfix ziew.
