@@ -1,5 +1,5 @@
-Summary:	Irssi - scripts
-Summary(pl):	Irssi - skrypty
+Summary:	Irssi scripts pack
+Summary(pl):	Zestaw skryptów do Rrssi.
 Name:		irssi-scripts
 Version:	0.1
 Release:	0.1
@@ -8,24 +8,25 @@ Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/irssi-scripts/%{name}.tar.gz
 # Source0-md5:	a9e7bbcc841a27984394a09d0f11edf1
 Requires:	irssi
-
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:      irssi-skin
 
 %define		_scriptdir	%{_prefix}/share/irssi/scripts
 
 %description
--
+Irssi scripts pack.
  
 %description -l pl
--
+Zestaw skryptów do Irssi.
 
 %package -n irssi-script-forwardfix
 Summary:	forwardfix script
 Summary(pl):	Skrypt forwardfix
 Group:		Applications/Communications
 Requires:	irssi
-Conflicts:	irssi-scripts
+Provides:	irssi-script
+Obsoletes:	irssi-scripts
 
 %description -n irssi-script-forwardfix
 forwardfix script.
@@ -38,7 +39,8 @@ Summary:	ziew script
 Summary(pl):	Skrypt ziew
 Group:		Applications/Communications
 Requires:	irssi
-Conflicts:	irssi-scripts
+Provides:	irssi-script
+Obsoletes:	irssi-scripts
 
 %description -n irssi-script-ziew
 forwardfix ziew.
