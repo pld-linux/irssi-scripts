@@ -1,14 +1,18 @@
 # TODO:
 # - longer descriptions
+# - the package versions don't reflect the script version.
+#   create separate .specs? (brr)
 Summary:	Irssi scripts pack
 Summary(pl):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.4
-Release:	1
+Release:	2
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/irssi-scripts/%{name}.tar.gz
 # Source0-md5:	8614bea24b9683988e3336c23d38bc74
+Source1:	http://www.irssi.org/scripts/scripts/amarok_ssh.pl
+# Source1-md5:	073b81e7bb307883d6d67618bbd3b800
 Requires:	irssi
 Obsoletes:	irssi-script
 BuildArch:	noarch
@@ -108,6 +112,19 @@ people script.
 %description -n irssi-script-people -l pl
 Skrypt people.
 
+%package -n irssi-script-amarok
+Summary:	amaroK (via ssh)
+Group:		Applications/Communications
+URL:		http://www.codeeye.de/irssi/
+License:	Public Domain
+Requires:	irssi
+Provides:	irssi-script
+Obsoletes:	irssi-scripts
+
+%description -n irssi-script-amarok
+Retrievs song infos and controls amaroK via dcop, optionally running
+on another computer via ssh.
+
 %prep
 %setup -q -n %{name}
 
@@ -116,6 +133,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_scriptdir}
 
 install *.pl $RPM_BUILD_ROOT%{_scriptdir}
+install %{SOURCE1} $RPM_BUILD_ROOT%{_scriptdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -147,3 +165,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n irssi-script-people
 %defattr(644,root,root,755)
 %{_scriptdir}/people.pl
+
+%files -n irssi-script-amarok
+%defattr(644,root,root,755)
+%{_scriptdir}/amarok_ssh.pl
