@@ -1,0 +1,11 @@
+--- ./amarok_ssh.pl~	2005-04-11 12:10:05.565372053 +0300
++++ ./amarok_ssh.pl	2005-04-11 12:10:06.898152781 +0300
+@@ -67,7 +67,7 @@
+ 
+ sub cmd ($) {
+     my ($postcmd) = @_;
+-    my $dcop_precmd = 'dcop --user '.$dcop_user.' amarok player';
++    my $dcop_precmd = 'dcop '. ($dcop_user ? '--user '. $dcop_user : '') . ' amarok player';
+ 
+     if ($amarok_use_ssh == 1) {
+         #print "ssh ".$ssh_client." '".$dcop_precmd." ".$postcmd."'";
