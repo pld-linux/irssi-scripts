@@ -6,13 +6,14 @@ Summary:	Irssi scripts pack
 Summary(pl):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.4
-Release:	2
+Release:	3
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/irssi-scripts/%{name}.tar.gz
 # Source0-md5:	8614bea24b9683988e3336c23d38bc74
 Source1:	http://www.irssi.org/scripts/scripts/amarok_ssh.pl
 # Source1-md5:	073b81e7bb307883d6d67618bbd3b800
+Patch0:		amarok_ssh-opt-user.patch
 Requires:	irssi
 Obsoletes:	irssi-script
 BuildArch:	noarch
@@ -127,13 +128,14 @@ on another computer via ssh.
 
 %prep
 %setup -q -n %{name}
+install %{SOURCE1} .
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_scriptdir}
 
 install *.pl $RPM_BUILD_ROOT%{_scriptdir}
-install %{SOURCE1} $RPM_BUILD_ROOT%{_scriptdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
