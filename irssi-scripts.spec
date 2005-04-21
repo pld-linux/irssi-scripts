@@ -6,15 +6,18 @@ Summary:	Irssi scripts pack
 Summary(pl):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.4
-Release:	3
+Release:	4
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/irssi-scripts/%{name}.tar.gz
 # Source0-md5:	8614bea24b9683988e3336c23d38bc74
 Source1:	http://www.irssi.org/scripts/scripts/amarok_ssh.pl
 # Source1-md5:	073b81e7bb307883d6d67618bbd3b800
+Source2:	http://www.irssi.org/scripts/scripts/charsetwars.pl
+# Source2-md5:	dcb02583cf838445b99a0a8d7387f913
 Patch0:		amarok_ssh-opt-user.patch
 Requires:	irssi
+Requires:	perl-Text-Iconv
 Obsoletes:	irssi-script
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -126,9 +129,25 @@ Obsoletes:	irssi-scripts
 Retrievs song infos and controls amaroK via dcop, optionally running
 on another computer via ssh.
 
+%package -n irssi-script-charsetwars
+Summary:	charsetwars
+Group:		Applications/Communications
+URL:		http://www.inf.ufsc.br/~nardin/irssi/
+License:	Public Domain
+Requires:	irssi
+Requires:	perl-Text-Iconv
+Provides:	irssi-script
+Obsoletes:	irssi-scripts
+
+%description -n irssi-script-charsetwars
+Converts messages between charsets (utf-8 <=> iso8859-1, etc.) by
+nick/channel/ircnet. With "dumb" (regexp) guessing for any charset (user
+configured).
+
 %prep
 %setup -q -n %{name}
 install %{SOURCE1} .
+install %{SOURCE2} .
 %patch0 -p1
 
 %install
@@ -171,3 +190,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n irssi-script-amarok
 %defattr(644,root,root,755)
 %{_scriptdir}/amarok_ssh.pl
+
+%files -n irssi-script-charsetwars
+%defattr(644,root,root,755)
+%{_scriptdir}/charsetwars.pl
