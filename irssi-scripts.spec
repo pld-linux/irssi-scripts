@@ -118,31 +118,43 @@ Skrypt people.
 
 %package -n irssi-script-amarok
 Summary:	amaroK (via ssh)
+Summary(pl):	amaroK (po ssh)
+License:	Public Domain
 Group:		Applications/Communications
 URL:		http://www.codeeye.de/irssi/
-License:	Public Domain
 Requires:	irssi
 Provides:	irssi-script
 Obsoletes:	irssi-scripts
 
 %description -n irssi-script-amarok
-Retrievs song infos and controls amaroK via dcop, optionally running
+Retrieves song infos and controls amaroK via dcop, optionally running
 on another computer via ssh.
+
+%description -n irssi-script-amarok -l pl
+Skrypt uzyskuj±cy informacje o utworze i steruj±cy odtwarzaczem amaroK
+poprzez dcop, opcjonalnie dzia³aj±cym na innym komputerze po ssh.
 
 %package -n irssi-script-charsetwars
 Summary:	charsetwars
+Summary(pl):	Skrypt charsetwars
+License:	Public Domain
 Group:		Applications/Communications
 URL:		http://www.inf.ufsc.br/~nardin/irssi/
-License:	Public Domain
 Requires:	irssi
 Requires:	perl-Text-Iconv
 Provides:	irssi-script
 Obsoletes:	irssi-scripts
 
 %description -n irssi-script-charsetwars
-Converts messages between charsets (utf-8 <=> iso8859-1, etc.) by
-nick/channel/ircnet. With "dumb" (regexp) guessing for any charset (user
-configured).
+Converts messages between charsets (utf-8 <=> iso-8859-1, etc.) by
+nick/channel/ircnet. With "dumb" (regexp) guessing for any charset
+(user configured).
+
+%description -n irssi-script-charsetwars -l pl
+Skrypt konwertuj±cy wiadomo¶ci miêdzy zestawami znaków (utf-8 <=>
+iso-8859-1 itp.) w zale¿no¶ci od nicka/kana³u/sieci. Zawiera tak¿e
+prymitywne zgadywanie (po wyra¿eniu regularnym) dla dowolnego zestawu
+znaków (konfigurowane przez u¿ytkownika).
 
 %prep
 %setup -q -n %{name}
