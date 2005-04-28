@@ -1,12 +1,11 @@
 # TODO:
+# - make main package require the subpackages rather packaging them?
 # - longer descriptions
-# - the package versions don't reflect the script version.
-#   create separate .specs? (brr)
 Summary:	Irssi scripts pack
 Summary(pl):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.4
-Release:	4
+Release:	4.1
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/irssi-scripts/%{name}.tar.gz
@@ -48,6 +47,7 @@ Skrypt forwardfix.
 %package -n irssi-script-ziew
 Summary:	ziew script
 Summary(pl):	Skrypt ziew
+Version:	0.57
 Group:		Applications/Communications
 URL:		http://gj.pointblue.com.pl/projects/ziew/
 Requires:	irssi
@@ -63,6 +63,7 @@ Skrypt ziew.
 %package -n irssi-script-seen
 Summary:	seen script
 Summary(pl):	Skrypt seen
+Version:	1.11
 Group:		Applications/Communications
 Requires:	irssi
 Provides:	irssi-script
@@ -77,6 +78,7 @@ Skrypt seen.
 %package -n irssi-script-cp2iso
 Summary:	cp2iso script
 Summary(pl):	Skrypt cp2iso
+Version:	1.3
 Group:		Applications/Communications
 Requires:	irssi
 Provides:	irssi-script
@@ -91,6 +93,7 @@ Skrypt cp2iso.
 %package -n irssi-script-keepnick
 Summary:	keepnick script
 Summary(pl):	Skrypt keepnick
+Version:	1.17
 Group:		Applications/Communications
 Requires:	irssi
 Provides:	irssi-script
@@ -105,6 +108,7 @@ Skrypt keepnick.
 %package -n irssi-script-people
 Summary:	people script
 Summary(pl):	Skrypt people
+Version:	1.4
 Group:		Applications/Communications
 Requires:	irssi
 Provides:	irssi-script
@@ -119,6 +123,7 @@ Skrypt people.
 %package -n irssi-script-amarok
 Summary:	amaroK (via ssh)
 Summary(pl):	amaroK (po ssh)
+Version:	1.0
 License:	Public Domain
 Group:		Applications/Communications
 URL:		http://www.codeeye.de/irssi/
@@ -137,6 +142,7 @@ poprzez dcop, opcjonalnie dzia³aj±cym na innym komputerze po ssh.
 %package -n irssi-script-charsetwars
 Summary:	charsetwars
 Summary(pl):	Skrypt charsetwars
+Version:	0.69.1
 License:	Public Domain
 Group:		Applications/Communications
 URL:		http://www.inf.ufsc.br/~nardin/irssi/
