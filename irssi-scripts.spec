@@ -105,7 +105,7 @@ Requires:	irssi
 
 %description -n irssi-script-chanact
 Adds new powerful and customizable [Act: ...] item
-(chanelnames, modes, alias).
+(channelnames, modes, alias).
 
 Lets you give alias characters to windows so that you can select those
 with meta-<char>.
