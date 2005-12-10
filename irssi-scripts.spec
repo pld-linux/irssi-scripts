@@ -27,6 +27,7 @@ Source8:	http://www.irssi.org/scripts/scripts/keepnick.pl
 Source9:	http://www.irssi.org/scripts/scripts/tab_stop.pl
 # Source9-md5:	ffa8d8381c41521365cacf9b1bb13951
 Patch0:		amarok_ssh-opt-user.patch
+URL:		http://scripts.irssi.org/
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	sed >= 4.0
 Requires:	irssi-script-amarok
@@ -56,7 +57,10 @@ Almost all scripts can also be downloaded from
 <http://scripts.irssi.org/>.
 
 %description -l pl
-Zestaw skryptów do Irssi.
+Zestaw przydatnych skryptów do klienta IRC irssi.
+
+Wiêkszo¶æ z nich jest dostêpna pod adresem:
+<http://scripts.irssi.org/>.
 
 %package -n irssi-script-amarok
 Summary:	amaroK (via ssh)
