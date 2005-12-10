@@ -81,6 +81,7 @@ poprzez dcop, opcjonalnie dzia³aj±cym na innym komputerze po ssh.
 
 %package -n irssi-script-autorealname
 Summary:	autorealname script
+Summary(pl):	Skrypt autorealname
 Version:	0.8.5
 License:	GPL v2 or later
 Group:		Applications/Communications
@@ -89,8 +90,13 @@ Requires:	irssi
 %description -n irssi-script-autorealname
 Print realname of everyone who join to channels.
 
+%description -n irssi-script-autorealname -l pl
+Skrypt wypisuj±cy prawdziwe nazwisko ka¿dego do³±czaj±cego siê do
+kana³ów.
+
 %package -n irssi-script-chanact
 Summary:	chanact script
+Summary(pl):	Skrypt chanact
 Version:	0.5.5
 License:	GPL v2 or later
 Group:		Applications/Communications
@@ -99,9 +105,17 @@ Requires:	irssi
 
 %description -n irssi-script-chanact
 Adds new powerful and customizable [Act: ...] item
-(chanelnames,modes,alias).
+(chanelnames, modes, alias).
+
 Lets you give alias characters to windows so that you can select those
 with meta-<char>.
+
+%description -n irssi-script-chanact -l pl
+Skrypt dodaj±cy potê¿ny i konfigurowalny element [Act: ...]
+(z nazwami kana³ów, trybami, aliasami).
+
+Pozwala nadaæ znaki aliasów do okien, dziêki czemu mo¿na wybieraæ okna
+poprzez meta-<znak>.
 
 %package -n irssi-script-charsetwars
 Summary:	charsetwars
@@ -132,13 +146,15 @@ Group:		Applications/Communications
 Requires:	irssi
 
 %description -n irssi-script-cp2iso
-Translates CP1250 to ISO8859-2 in incoming messages.
+Translates CP1250 to ISO-8859-2 in incoming messages.
 
 %description -n irssi-script-cp2iso -l pl
-Skrypt cp2iso.
+Skrypt cp2iso t³umacz±cy CP1250 na ISO-8859-2 w przychodz±cych
+wiadomo¶ciach.
 
 %package -n irssi-script-dispatch
 Summary:	dispatch script
+Summary(pl):	Skrypt dispatch
 Version:	0.0.2
 License:	GPL v2
 Group:		Applications/Communications
@@ -146,6 +162,9 @@ Requires:	irssi
 
 %description -n irssi-script-dispatch
 This scripts sends unknown commands to the server.
+
+%description -n irssi-script-dispatch -l pl
+Ten skrypt wysy³a nieznane polecenia do serwera.
 
 %package -n irssi-script-forwardfix
 Summary:	forwardfix script
@@ -162,6 +181,7 @@ Skrypt forwardfix.
 
 %package -n irssi-script-hideauth
 Summary:	hideauth script
+Summary(pl):	Skrypt hideauth
 Version:	1.01
 License:	Public Domain
 Group:		Applications/Communications
@@ -170,6 +190,10 @@ Requires:	irssi
 
 %description -n irssi-script-hideauth
 Stops eggdrop passwords from showing up in e.g. /msg botnick op
+password [#channel].
+
+%description -n irssi-script-hideauth -l pl
+Skrypt zapobiegaj±cy pokazywaniu hase³ eggdropa w np. /msg botnick op
 password [#channel].
 
 %package -n irssi-script-keepnick
@@ -183,10 +207,12 @@ Requires:	irssi
 Try to get your nick back when it becomes available.
 
 %description -n irssi-script-keepnick -l pl
-Skrypt keepnick.
+Skrypt keepnick pozwala odzyskaæ swojego nicka kiedy stanie siê
+dostêpny.
 
 %package -n irssi-script-nocaps
 Summary:	nocaps script
+Summary(pl):	Skrypt nocaps
 Version:	1.01
 License:	Public Domain
 Group:		Applications/Communications
@@ -195,6 +221,10 @@ Requires:	irssi
 
 %description -n irssi-script-nocaps
 Replaces lines in ALL CAPS with something easier on the eyes.
+
+%description -n irssi-script-nocaps -l pl
+Skrypt zastêpuj±cy linie napisane w ca³o¶ci WIELKIMI LITERAMI czym¶
+³atwiejszym do przeczytania.
 
 %package -n irssi-script-people
 Summary:	people script
@@ -207,7 +237,8 @@ Requires:	irssi
 Userlist with autoopping, autokicking etc.
 
 %description -n irssi-script-people -l pl
-Skrypt people.
+Skrypt people udostêpnia listê u¿ytkowników z opcjami autoop, autokick
+itp.
 
 %package -n irssi-script-seen
 Summary:	seen script
@@ -220,10 +251,11 @@ Requires:	irssi
 Tell people when other people were online.
 
 %description -n irssi-script-seen -l pl
-Skrypt seen.
+Skrypt seen informuje ludzi o tym, ¿e inni s± online.
 
 %package -n irssi-script-tab_stop
 Summary:	tab_stop script
+Summary(pl):	Skrypt tab_stop
 Version:	0.2002123102
 License:	GPL v2
 Group:		Applications/Communications
@@ -232,6 +264,9 @@ Requires:	irssi
 %description -n irssi-script-tab_stop
 This script replaces the evil inverted 'I' with a configurable number
 of whitespaces.
+
+%description -n irssi-script-tab_stop -l pl
+Ten skrypt zastêpuje z³e odwrócone 'I' konfigurowaln± liczb± spacji.
 
 %package -n irssi-script-ziew
 Summary:	ziew script
