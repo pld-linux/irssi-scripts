@@ -3,7 +3,7 @@ Summary:	Irssi scripts pack
 Summary(pl):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.4
-Release:	6
+Release:	7
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/%{name}/irssi-scripts.tar.gz
@@ -26,6 +26,8 @@ Source8:	http://www.irssi.org/scripts/scripts/keepnick.pl
 # Source8-md5:	e50707d22a9338df6fb9b39dcdefb7e2
 Source9:	http://www.irssi.org/scripts/scripts/tab_stop.pl
 # Source9-md5:	ffa8d8381c41521365cacf9b1bb13951
+Source10:	http://www.netx.waw.pl/~agaran/forwardfix.pl
+# Source10-md5:	b69e09a156c55d049cdcb1a02882b186
 Patch0:		amarok_ssh-opt-user.patch
 URL:		http://scripts.irssi.org/
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -171,7 +173,7 @@ Ten skrypt wysy³a nieznane polecenia do serwera.
 Summary:	forwardfix script
 Summary(pl):	Skrypt forwardfix
 Group:		Applications/Communications
-URL:		http://vorlon.icpnet.pl/~agaran/
+URL:		http://www.netx.waw.pl/~agaran/
 Requires:	irssi
 
 %description -n irssi-script-forwardfix
@@ -294,6 +296,7 @@ cp -a %{SOURCE6} .
 cp -a %{SOURCE7} .
 cp -a %{SOURCE8} .
 cp -a %{SOURCE9} .
+cp -a %{SOURCE10} .
 %patch0 -p1
 
 # make rpm scan perl deps: add perl preamble
