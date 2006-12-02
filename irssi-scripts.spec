@@ -282,10 +282,10 @@ Requires:	irssi
 Requires:	vtk-c
 
 %description -n irssi-script-vtk
-pl_TK for irssi.
+pl@TK for irssi.
 
 %description -n irssi-script-vtk -l pl
-pl_TK dla irssi.
+pl@TK dla irssi.
 
 %package -n irssi-script-ziew
 Summary:	ziew script
