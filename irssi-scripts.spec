@@ -3,7 +3,7 @@ Summary:	Irssi scripts pack
 Summary(pl):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.4
-Release:	7
+Release:	8
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/%{name}/irssi-scripts.tar.gz
@@ -28,6 +28,8 @@ Source9:	http://www.irssi.org/scripts/scripts/tab_stop.pl
 # Source9-md5:	ffa8d8381c41521365cacf9b1bb13951
 Source10:	http://www.netx.waw.pl/~agaran/forwardfix.pl
 # Source10-md5:	b69e09a156c55d049cdcb1a02882b186
+Source11:	http://entermedia.pl/~shadzik/vtk/vtk.pl
+# Source11-md5:	9e34c85f1084afaa71590bc544dd4e76
 Patch0:		amarok_ssh-opt-user.patch
 URL:		http://scripts.irssi.org/
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -271,6 +273,20 @@ of whitespaces.
 %description -n irssi-script-tab_stop -l pl
 Ten skrypt zastêpuje z³e odwrócone 'I' konfigurowaln± liczb± spacji.
 
+%package -n irssi-script-vtk
+Summary:	vtk script
+Summary(pl):	Skrypt vtk
+Version:	0.1
+Group:		Applications/Communications
+Requires:	irssi
+Requires:	vtk-c
+
+%description -n irssi-script-vtk
+pl_TK for irssi.
+
+%description -n irssi-script-vtk -l pl
+pl_TK dla irssi.
+
 %package -n irssi-script-ziew
 Summary:	ziew script
 Summary(pl):	Skrypt ziew
@@ -297,6 +313,7 @@ cp -a %{SOURCE7} .
 cp -a %{SOURCE8} .
 cp -a %{SOURCE9} .
 cp -a %{SOURCE10} .
+cp -a %{SOURCE11} .
 %patch0 -p1
 
 # make rpm scan perl deps: add perl preamble
@@ -367,6 +384,10 @@ rm -rf $RPM_BUILD_ROOT
 %files -n irssi-script-tab_stop
 %defattr(644,root,root,755)
 %{_scriptdir}/tab_stop.pl
+
+%files -n irssi-script-vtk
+%defattr(644,root,root,755)
+%{_scriptdir}/vtk.pl
 
 %files -n irssi-script-ziew
 %defattr(644,root,root,755)
