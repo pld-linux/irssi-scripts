@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Irssi scripts pack
-Summary(pl):	Zestaw skryptów do Irssi
+Summary(pl.UTF-8):   Zestaw skryptÃ³w do Irssi
 Name:		irssi-scripts
 Version:	0.4
 Release:	8
@@ -62,15 +62,15 @@ installing this package only makes sense if you intend to use irssi.
 Almost all scripts can also be downloaded from
 <http://scripts.irssi.org/>.
 
-%description -l pl
-Zestaw przydatnych skryptów do klienta IRC irssi.
+%description -l pl.UTF-8
+Zestaw przydatnych skryptÃ³w do klienta IRC irssi.
 
-Wiêkszo¶æ z nich jest dostêpna pod adresem:
+WiÄ™kszoÅ›Ä‡ z nich jest dostÄ™pna pod adresem:
 <http://scripts.irssi.org/>.
 
 %package -n irssi-script-amarok
 Summary:	amaroK (via ssh)
-Summary(pl):	amaroK (po ssh)
+Summary(pl.UTF-8):   amaroK (po ssh)
 Version:	1.0
 License:	Public Domain
 Group:		Applications/Communications
@@ -81,13 +81,13 @@ Requires:	irssi
 Retrieves song infos and controls amaroK via dcop, optionally running
 on another computer via ssh.
 
-%description -n irssi-script-amarok -l pl
-Skrypt uzyskuj±cy informacje o utworze i steruj±cy odtwarzaczem amaroK
-poprzez dcop, opcjonalnie dzia³aj±cym na innym komputerze po ssh.
+%description -n irssi-script-amarok -l pl.UTF-8
+Skrypt uzyskujÄ…cy informacje o utworze i sterujÄ…cy odtwarzaczem amaroK
+poprzez dcop, opcjonalnie dziaÅ‚ajÄ…cym na innym komputerze po ssh.
 
 %package -n irssi-script-autorealname
 Summary:	autorealname script
-Summary(pl):	Skrypt autorealname
+Summary(pl.UTF-8):   Skrypt autorealname
 Version:	0.8.5
 License:	GPL v2 or later
 Group:		Applications/Communications
@@ -96,13 +96,13 @@ Requires:	irssi
 %description -n irssi-script-autorealname
 Print realname of everyone who join to channels.
 
-%description -n irssi-script-autorealname -l pl
-Skrypt wypisuj±cy prawdziwe nazwisko ka¿dego do³±czaj±cego siê do
-kana³ów.
+%description -n irssi-script-autorealname -l pl.UTF-8
+Skrypt wypisujÄ…cy prawdziwe nazwisko kaÅ¼dego doÅ‚Ä…czajÄ…cego siÄ™ do
+kanaÅ‚Ã³w.
 
 %package -n irssi-script-chanact
 Summary:	chanact script
-Summary(pl):	Skrypt chanact
+Summary(pl.UTF-8):   Skrypt chanact
 Version:	0.5.5
 License:	GPL v2 or later
 Group:		Applications/Communications
@@ -116,16 +116,16 @@ Adds new powerful and customizable [Act: ...] item
 Lets you give alias characters to windows so that you can select those
 with meta-<char>.
 
-%description -n irssi-script-chanact -l pl
-Skrypt dodaj±cy potê¿ny i konfigurowalny element [Act: ...]
-(z nazwami kana³ów, trybami, aliasami).
+%description -n irssi-script-chanact -l pl.UTF-8
+Skrypt dodajÄ…cy potÄ™Å¼ny i konfigurowalny element [Act: ...]
+(z nazwami kanaÅ‚Ã³w, trybami, aliasami).
 
-Pozwala nadaæ znaki aliasów do okien, dziêki czemu mo¿na wybieraæ okna
+Pozwala nadaÄ‡ znaki aliasÃ³w do okien, dziÄ™ki czemu moÅ¼na wybieraÄ‡ okna
 poprzez meta-<znak>.
 
 %package -n irssi-script-charsetwars
 Summary:	charsetwars
-Summary(pl):	Skrypt charsetwars
+Summary(pl.UTF-8):   Skrypt charsetwars
 Version:	0.69.1
 License:	Public Domain
 Group:		Applications/Communications
@@ -137,15 +137,15 @@ Converts messages between charsets (utf-8 <=> iso-8859-1, etc.) by
 nick/channel/ircnet. With "dumb" (regexp) guessing for any charset
 (user configured).
 
-%description -n irssi-script-charsetwars -l pl
-Skrypt konwertuj±cy wiadomo¶ci miêdzy zestawami znaków (utf-8 <=>
-iso-8859-1 itp.) w zale¿no¶ci od nicka/kana³u/sieci. Zawiera tak¿e
-prymitywne zgadywanie (po wyra¿eniu regularnym) dla dowolnego zestawu
-znaków (konfigurowane przez u¿ytkownika).
+%description -n irssi-script-charsetwars -l pl.UTF-8
+Skrypt konwertujÄ…cy wiadomoÅ›ci miÄ™dzy zestawami znakÃ³w (utf-8 <=>
+iso-8859-1 itp.) w zaleÅ¼noÅ›ci od nicka/kanaÅ‚u/sieci. Zawiera takÅ¼e
+prymitywne zgadywanie (po wyraÅ¼eniu regularnym) dla dowolnego zestawu
+znakÃ³w (konfigurowane przez uÅ¼ytkownika).
 
 %package -n irssi-script-cp2iso
 Summary:	cp2iso script
-Summary(pl):	Skrypt cp2iso
+Summary(pl.UTF-8):   Skrypt cp2iso
 Version:	1.3
 Group:		Applications/Communications
 Requires:	irssi
@@ -153,13 +153,13 @@ Requires:	irssi
 %description -n irssi-script-cp2iso
 Translates CP1250 to ISO-8859-2 in incoming messages.
 
-%description -n irssi-script-cp2iso -l pl
-Skrypt cp2iso t³umacz±cy CP1250 na ISO-8859-2 w przychodz±cych
-wiadomo¶ciach.
+%description -n irssi-script-cp2iso -l pl.UTF-8
+Skrypt cp2iso tÅ‚umaczÄ…cy CP1250 na ISO-8859-2 w przychodzÄ…cych
+wiadomoÅ›ciach.
 
 %package -n irssi-script-dispatch
 Summary:	dispatch script
-Summary(pl):	Skrypt dispatch
+Summary(pl.UTF-8):   Skrypt dispatch
 Version:	0.0.2
 License:	GPL v2
 Group:		Applications/Communications
@@ -168,12 +168,12 @@ Requires:	irssi
 %description -n irssi-script-dispatch
 This scripts sends unknown commands to the server.
 
-%description -n irssi-script-dispatch -l pl
-Ten skrypt wysy³a nieznane polecenia do serwera.
+%description -n irssi-script-dispatch -l pl.UTF-8
+Ten skrypt wysyÅ‚a nieznane polecenia do serwera.
 
 %package -n irssi-script-forwardfix
 Summary:	forwardfix script
-Summary(pl):	Skrypt forwardfix
+Summary(pl.UTF-8):   Skrypt forwardfix
 Group:		Applications/Communications
 URL:		http://www.netx.waw.pl/~agaran/
 Requires:	irssi
@@ -181,12 +181,12 @@ Requires:	irssi
 %description -n irssi-script-forwardfix
 forwardfix script.
 
-%description -n irssi-script-forwardfix -l pl
+%description -n irssi-script-forwardfix -l pl.UTF-8
 Skrypt forwardfix.
 
 %package -n irssi-script-hideauth
 Summary:	hideauth script
-Summary(pl):	Skrypt hideauth
+Summary(pl.UTF-8):   Skrypt hideauth
 Version:	1.01
 License:	Public Domain
 Group:		Applications/Communications
@@ -197,13 +197,13 @@ Requires:	irssi
 Stops eggdrop passwords from showing up in e.g. /msg botnick op
 password [#channel].
 
-%description -n irssi-script-hideauth -l pl
-Skrypt zapobiegaj±cy pokazywaniu hase³ eggdropa w np. /msg botnick op
+%description -n irssi-script-hideauth -l pl.UTF-8
+Skrypt zapobiegajÄ…cy pokazywaniu haseÅ‚ eggdropa w np. /msg botnick op
 password [#channel].
 
 %package -n irssi-script-keepnick
 Summary:	keepnick script
-Summary(pl):	Skrypt keepnick
+Summary(pl.UTF-8):   Skrypt keepnick
 Version:	1.17
 Group:		Applications/Communications
 Requires:	irssi
@@ -211,13 +211,13 @@ Requires:	irssi
 %description -n irssi-script-keepnick
 Try to get your nick back when it becomes available.
 
-%description -n irssi-script-keepnick -l pl
-Skrypt keepnick pozwala odzyskaæ swojego nicka kiedy stanie siê
-dostêpny.
+%description -n irssi-script-keepnick -l pl.UTF-8
+Skrypt keepnick pozwala odzyskaÄ‡ swojego nicka kiedy stanie siÄ™
+dostÄ™pny.
 
 %package -n irssi-script-nocaps
 Summary:	nocaps script
-Summary(pl):	Skrypt nocaps
+Summary(pl.UTF-8):   Skrypt nocaps
 Version:	1.01
 License:	Public Domain
 Group:		Applications/Communications
@@ -227,13 +227,13 @@ Requires:	irssi
 %description -n irssi-script-nocaps
 Replaces lines in ALL CAPS with something easier on the eyes.
 
-%description -n irssi-script-nocaps -l pl
-Skrypt zastêpuj±cy linie napisane w ca³o¶ci WIELKIMI LITERAMI czym¶
-³atwiejszym do przeczytania.
+%description -n irssi-script-nocaps -l pl.UTF-8
+Skrypt zastÄ™pujÄ…cy linie napisane w caÅ‚oÅ›ci WIELKIMI LITERAMI czymÅ›
+Å‚atwiejszym do przeczytania.
 
 %package -n irssi-script-people
 Summary:	people script
-Summary(pl):	Skrypt people
+Summary(pl.UTF-8):   Skrypt people
 Version:	1.4
 Group:		Applications/Communications
 Requires:	irssi
@@ -241,13 +241,13 @@ Requires:	irssi
 %description -n irssi-script-people
 Userlist with autoopping, autokicking etc.
 
-%description -n irssi-script-people -l pl
-Skrypt people udostêpnia listê u¿ytkowników z opcjami autoop, autokick
+%description -n irssi-script-people -l pl.UTF-8
+Skrypt people udostÄ™pnia listÄ™ uÅ¼ytkownikÃ³w z opcjami autoop, autokick
 itp.
 
 %package -n irssi-script-seen
 Summary:	seen script
-Summary(pl):	Skrypt seen
+Summary(pl.UTF-8):   Skrypt seen
 Version:	1.11
 Group:		Applications/Communications
 Requires:	irssi
@@ -255,12 +255,12 @@ Requires:	irssi
 %description -n irssi-script-seen
 Tell people when other people were online.
 
-%description -n irssi-script-seen -l pl
-Skrypt seen informuje ludzi o tym, ¿e inni s± online.
+%description -n irssi-script-seen -l pl.UTF-8
+Skrypt seen informuje ludzi o tym, Å¼e inni sÄ… online.
 
 %package -n irssi-script-tab_stop
 Summary:	tab_stop script
-Summary(pl):	Skrypt tab_stop
+Summary(pl.UTF-8):   Skrypt tab_stop
 Version:	0.2002123102
 License:	GPL v2
 Group:		Applications/Communications
@@ -270,12 +270,12 @@ Requires:	irssi
 This script replaces the evil inverted 'I' with a configurable number
 of whitespaces.
 
-%description -n irssi-script-tab_stop -l pl
-Ten skrypt zastêpuje z³e odwrócone 'I' konfigurowaln± liczb± spacji.
+%description -n irssi-script-tab_stop -l pl.UTF-8
+Ten skrypt zastÄ™puje zÅ‚e odwrÃ³cone 'I' konfigurowalnÄ… liczbÄ… spacji.
 
 %package -n irssi-script-vtk
 Summary:	vtk script
-Summary(pl):	Skrypt vtk
+Summary(pl.UTF-8):   Skrypt vtk
 Version:	0.1
 Group:		Applications/Communications
 Requires:	irssi
@@ -284,12 +284,12 @@ Requires:	vtk-c
 %description -n irssi-script-vtk
 pl@TK for irssi.
 
-%description -n irssi-script-vtk -l pl
+%description -n irssi-script-vtk -l pl.UTF-8
 pl@TK dla irssi.
 
 %package -n irssi-script-ziew
 Summary:	ziew script
-Summary(pl):	Skrypt ziew
+Summary(pl.UTF-8):   Skrypt ziew
 Version:	0.57
 Group:		Applications/Communications
 URL:		http://gj.pointblue.com.pl/projects/ziew/
@@ -298,7 +298,7 @@ Requires:	irssi
 %description -n irssi-script-ziew
 yawners toy.
 
-%description -n irssi-script-ziew -l pl
+%description -n irssi-script-ziew -l pl.UTF-8
 Skrypt ziew.
 
 %prep
