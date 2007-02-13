@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Irssi scripts pack
-Summary(pl.UTF-8):   Zestaw skryptów do Irssi
+Summary(pl.UTF-8):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.4
 Release:	8
@@ -70,7 +70,7 @@ Większość z nich jest dostępna pod adresem:
 
 %package -n irssi-script-amarok
 Summary:	amaroK (via ssh)
-Summary(pl.UTF-8):   amaroK (po ssh)
+Summary(pl.UTF-8):	amaroK (po ssh)
 Version:	1.0
 License:	Public Domain
 Group:		Applications/Communications
@@ -87,7 +87,7 @@ poprzez dcop, opcjonalnie działającym na innym komputerze po ssh.
 
 %package -n irssi-script-autorealname
 Summary:	autorealname script
-Summary(pl.UTF-8):   Skrypt autorealname
+Summary(pl.UTF-8):	Skrypt autorealname
 Version:	0.8.5
 License:	GPL v2 or later
 Group:		Applications/Communications
@@ -102,7 +102,7 @@ kanałów.
 
 %package -n irssi-script-chanact
 Summary:	chanact script
-Summary(pl.UTF-8):   Skrypt chanact
+Summary(pl.UTF-8):	Skrypt chanact
 Version:	0.5.5
 License:	GPL v2 or later
 Group:		Applications/Communications
@@ -125,7 +125,7 @@ poprzez meta-<znak>.
 
 %package -n irssi-script-charsetwars
 Summary:	charsetwars
-Summary(pl.UTF-8):   Skrypt charsetwars
+Summary(pl.UTF-8):	Skrypt charsetwars
 Version:	0.69.1
 License:	Public Domain
 Group:		Applications/Communications
@@ -145,7 +145,7 @@ znaków (konfigurowane przez użytkownika).
 
 %package -n irssi-script-cp2iso
 Summary:	cp2iso script
-Summary(pl.UTF-8):   Skrypt cp2iso
+Summary(pl.UTF-8):	Skrypt cp2iso
 Version:	1.3
 Group:		Applications/Communications
 Requires:	irssi
@@ -159,7 +159,7 @@ wiadomościach.
 
 %package -n irssi-script-dispatch
 Summary:	dispatch script
-Summary(pl.UTF-8):   Skrypt dispatch
+Summary(pl.UTF-8):	Skrypt dispatch
 Version:	0.0.2
 License:	GPL v2
 Group:		Applications/Communications
@@ -173,7 +173,7 @@ Ten skrypt wysyła nieznane polecenia do serwera.
 
 %package -n irssi-script-forwardfix
 Summary:	forwardfix script
-Summary(pl.UTF-8):   Skrypt forwardfix
+Summary(pl.UTF-8):	Skrypt forwardfix
 Group:		Applications/Communications
 URL:		http://www.netx.waw.pl/~agaran/
 Requires:	irssi
@@ -186,7 +186,7 @@ Skrypt forwardfix.
 
 %package -n irssi-script-hideauth
 Summary:	hideauth script
-Summary(pl.UTF-8):   Skrypt hideauth
+Summary(pl.UTF-8):	Skrypt hideauth
 Version:	1.01
 License:	Public Domain
 Group:		Applications/Communications
@@ -203,7 +203,7 @@ password [#channel].
 
 %package -n irssi-script-keepnick
 Summary:	keepnick script
-Summary(pl.UTF-8):   Skrypt keepnick
+Summary(pl.UTF-8):	Skrypt keepnick
 Version:	1.17
 Group:		Applications/Communications
 Requires:	irssi
@@ -217,7 +217,7 @@ dostępny.
 
 %package -n irssi-script-nocaps
 Summary:	nocaps script
-Summary(pl.UTF-8):   Skrypt nocaps
+Summary(pl.UTF-8):	Skrypt nocaps
 Version:	1.01
 License:	Public Domain
 Group:		Applications/Communications
@@ -233,7 +233,7 @@ Skrypt zastępujący linie napisane w całości WIELKIMI LITERAMI czymś
 
 %package -n irssi-script-people
 Summary:	people script
-Summary(pl.UTF-8):   Skrypt people
+Summary(pl.UTF-8):	Skrypt people
 Version:	1.4
 Group:		Applications/Communications
 Requires:	irssi
@@ -247,7 +247,7 @@ itp.
 
 %package -n irssi-script-seen
 Summary:	seen script
-Summary(pl.UTF-8):   Skrypt seen
+Summary(pl.UTF-8):	Skrypt seen
 Version:	1.11
 Group:		Applications/Communications
 Requires:	irssi
@@ -260,7 +260,7 @@ Skrypt seen informuje ludzi o tym, że inni są online.
 
 %package -n irssi-script-tab_stop
 Summary:	tab_stop script
-Summary(pl.UTF-8):   Skrypt tab_stop
+Summary(pl.UTF-8):	Skrypt tab_stop
 Version:	0.2002123102
 License:	GPL v2
 Group:		Applications/Communications
@@ -275,7 +275,7 @@ Ten skrypt zastępuje złe odwrócone 'I' konfigurowalną liczbą spacji.
 
 %package -n irssi-script-vtk
 Summary:	vtk script
-Summary(pl.UTF-8):   Skrypt vtk
+Summary(pl.UTF-8):	Skrypt vtk
 Version:	0.1
 Group:		Applications/Communications
 Requires:	irssi
@@ -289,7 +289,7 @@ pl@TK dla irssi.
 
 %package -n irssi-script-ziew
 Summary:	ziew script
-Summary(pl.UTF-8):   Skrypt ziew
+Summary(pl.UTF-8):	Skrypt ziew
 Version:	0.57
 Group:		Applications/Communications
 URL:		http://gj.pointblue.com.pl/projects/ziew/
