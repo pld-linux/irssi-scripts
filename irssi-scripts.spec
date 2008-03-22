@@ -3,7 +3,7 @@ Summary:	Irssi scripts pack
 Summary(pl.UTF-8):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.4
-Release:	8
+Release:	9
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/%{name}/irssi-scripts.tar.gz
@@ -30,12 +30,15 @@ Source10:	http://www.netx.waw.pl/~agaran/forwardfix.pl
 # Source10-md5:	b69e09a156c55d049cdcb1a02882b186
 Source11:	http://entermedia.pl/~shadzik/vtk/vtk.pl
 # Source11-md5:	9e34c85f1084afaa71590bc544dd4e76
+Source12:	http://www.irssi.org/scripts/scripts/autorejoin.pl
+# Source12-md5:	1e8628326e7257692616d827f527a161
 Patch0:		amarok_ssh-opt-user.patch
 URL:		http://scripts.irssi.org/
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	sed >= 4.0
 Requires:	irssi-script-amarok
 Requires:	irssi-script-autorealname
+Requires:	irssi-script-autorejoin
 Requires:	irssi-script-chanact
 Requires:	irssi-script-charsetwars
 Requires:	irssi-script-cp2iso
@@ -99,6 +102,22 @@ Print realname of everyone who join to channels.
 %description -n irssi-script-autorealname -l pl.UTF-8
 Skrypt wypisujący prawdziwe nazwisko każdego dołączającego się do
 kanałów.
+
+%package -n irssi-script-autorejoin
+Summary:	autorejoin script
+Summary(pl.UTF-8):	Skrypt autorealname
+Version:	1.0.0
+License:	GPL v2 or later
+Group:		Applications/Communications
+Requires:	irssi
+
+%description -n irssi-script-autorejoin
+Automatically rejoin to channel after being kick, after a (short)
+user-defined delay.
+
+%description -n irssi-script-autorejoin -l pl.UTF-8
+Automatyczny rejoin na kanał po wykopaniu, z możliwością ustawienia
+opóźnienia.
 
 %package -n irssi-script-chanact
 Summary:	chanact script
@@ -314,6 +333,7 @@ cp -a %{SOURCE8} .
 cp -a %{SOURCE9} .
 cp -a %{SOURCE10} .
 cp -a %{SOURCE11} .
+cp -a %{SOURCE12} .
 %patch0 -p1
 
 # make rpm scan perl deps: add perl preamble
@@ -340,6 +360,10 @@ rm -rf $RPM_BUILD_ROOT
 %files -n irssi-script-autorealname
 %defattr(644,root,root,755)
 %{_scriptdir}/autorealname.pl
+
+%files -n irssi-script-autorejoin
+%defattr(644,root,root,755)
+%{_scriptdir}/autorejoin.pl
 
 %files -n irssi-script-chanact
 %defattr(644,root,root,755)
