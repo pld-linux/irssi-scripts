@@ -26,8 +26,8 @@ Source8:	http://www.irssi.org/scripts/scripts/keepnick.pl
 # Source8-md5:	e50707d22a9338df6fb9b39dcdefb7e2
 Source9:	http://www.irssi.org/scripts/scripts/tab_stop.pl
 # Source9-md5:	ffa8d8381c41521365cacf9b1bb13951
-Source10:	http://www.netx.waw.pl/~agaran/forwardfix.pl
-# Source10-md5:	b69e09a156c55d049cdcb1a02882b186
+Source10:	http://netx.waw.pl/~agaran/forwardfix.pl
+# Source10-md5:	8bf85f7368933a4e0cb4f875bac28733
 Source11:	http://entermedia.pl/~shadzik/vtk/vtk.pl
 # Source11-md5:	9e34c85f1084afaa71590bc544dd4e76
 Patch0:		amarok_ssh-opt-user.patch
@@ -174,6 +174,7 @@ Ten skrypt wysyła nieznane polecenia do serwera.
 %package -n irssi-script-forwardfix
 Summary:	forwardfix script
 Summary(pl.UTF-8):	Skrypt forwardfix
+Version:	20060902
 Group:		Applications/Communications
 URL:		http://www.netx.waw.pl/~agaran/
 Requires:	irssi
@@ -190,7 +191,7 @@ Summary(pl.UTF-8):	Skrypt hideauth
 Version:	1.01
 License:	Public Domain
 Group:		Applications/Communications
-URL:		http://www.jamesoff.net
+URL:		http://www.jamesoff.net/
 Requires:	irssi
 
 %description -n irssi-script-hideauth
@@ -221,7 +222,7 @@ Summary(pl.UTF-8):	Skrypt nocaps
 Version:	1.01
 License:	Public Domain
 Group:		Applications/Communications
-URL:		http://www.jamesoff.net
+URL:		http://www.jamesoff.net/
 Requires:	irssi
 
 %description -n irssi-script-nocaps
@@ -319,7 +320,7 @@ cp -a %{SOURCE11} .
 # make rpm scan perl deps: add perl preamble
 # if anyone has better idea/implementation, go ahead
 sed -i -e '1{
-	/perl/!i#!/usr/bin/perl
+	/perl/!i#!%{_bindir}/perl
 }' *.pl
 
 %install
