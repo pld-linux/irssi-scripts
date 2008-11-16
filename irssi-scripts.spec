@@ -3,7 +3,7 @@ Summary:	Irssi scripts pack
 Summary(pl.UTF-8):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.4
-Release:	13
+Release:	14
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/%{name}/irssi-scripts.tar.gz
@@ -52,8 +52,6 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_scriptdir	%{_prefix}/share/irssi/scripts
-# requires perl(Irssi) >= 20020428, but Irssi provides only 0.9
-%define		_noautoreq 'perl(Irssi)'
 
 %description
 This is a collection of useful scripts for the irssi IRC-client. Thus,
