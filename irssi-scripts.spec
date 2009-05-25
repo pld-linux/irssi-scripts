@@ -3,7 +3,7 @@ Summary:	Irssi scripts pack
 Summary(pl.UTF-8):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.4
-Release:	14
+Release:	15
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/%{name}/irssi-scripts.tar.gz
