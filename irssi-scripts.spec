@@ -1,9 +1,11 @@
 %include	/usr/lib/rpm/macros.perl
+# scripts from base tarball
+%define		irssi_ver	0.8.13
 Summary:	Irssi scripts pack
 Summary(pl.UTF-8):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
-Version:	0.4
-Release:	15
+Version:	0.5
+Release:	1
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/%{name}/irssi-scripts.tar.gz
@@ -30,23 +32,39 @@ Source10:	http://netx.waw.pl/~agaran/forwardfix.pl
 # Source10-md5:	8bf85f7368933a4e0cb4f875bac28733
 Source11:	http://entermedia.pl/~shadzik/vtk/vtk.pl
 # Source11-md5:	9e34c85f1084afaa71590bc544dd4e76
+Source12:	http://www.irssi.org/files/irssi-%{irssi_ver}.tar.gz
+# Source12-md5:	226f194576895ff3075c164523806d06
 Patch0:		amarok_ssh-opt-user.patch
+Patch1:		buf-nodumper.patch
 URL:		http://scripts.irssi.org/
+BuildRequires:	perl-base
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	sed >= 4.0
 Requires:	irssi-script-amarok
+Requires:	irssi-script-autoop
 Requires:	irssi-script-autorealname
+Requires:	irssi-script-autorejoin
+Requires:	irssi-script-buf
 Requires:	irssi-script-chanact
 Requires:	irssi-script-charsetwars
 Requires:	irssi-script-cp2iso
 Requires:	irssi-script-dispatch
+Requires:	irssi-script-dns
 Requires:	irssi-script-forwardfix
 Requires:	irssi-script-hideauth
 Requires:	irssi-script-keepnick
+Requires:	irssi-script-kills
+Requires:	irssi-script-mail
+Requires:	irssi-script-mlock
 Requires:	irssi-script-nocaps
 Requires:	irssi-script-people
+Requires:	irssi-script-quitmsg
+Requires:	irssi-script-sb_search
+Requires:	irssi-script-scriptassist
 Requires:	irssi-script-seen
+Requires:	irssi-script-splitlong
 Requires:	irssi-script-tab_stop
+Requires:	irssi-script-usercount
 Requires:	irssi-script-ziew
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -83,6 +101,16 @@ on another computer via ssh.
 Skrypt uzyskujący informacje o utworze i sterujący odtwarzaczem amaroK
 poprzez dcop, opcjonalnie działającym na innym komputerze po ssh.
 
+%package -n irssi-script-autoop
+Summary:	Simple auto-op script
+Version:	1.00
+License:	Public Domain
+Group:		Applications/Communications
+Requires:	irssi
+
+%description -n irssi-script-autoop
+Simple auto-op script.
+
 %package -n irssi-script-autorealname
 Summary:	autorealname script
 Summary(pl.UTF-8):	Skrypt autorealname
@@ -97,6 +125,26 @@ Print realname of everyone who join to channels.
 %description -n irssi-script-autorealname -l pl.UTF-8
 Skrypt wypisujący prawdziwe nazwisko każdego dołączającego się do
 kanałów.
+
+%package -n irssi-script-autorejoin
+Summary:	Automatically rejoin to channel after kicked
+Version:	1.00
+License:	Public Domain
+Group:		Applications/Communications
+Requires:	irssi
+
+%description -n irssi-script-autorejoin
+Automatically rejoin to channel after kicked.
+
+%package -n irssi-script-buf
+Summary:	Scroll buffer restorer
+Version:	2.13
+License:	Public Domain
+Group:		Applications/Communications
+Requires:	irssi
+
+%description -n irssi-script-buf
+Saves the buffer for /upgrade, so that no information is lost.
 
 %package -n irssi-script-chanact
 Summary:	chanact script
@@ -169,6 +217,16 @@ This scripts sends unknown commands to the server.
 %description -n irssi-script-dispatch -l pl.UTF-8
 Ten skrypt wysyła nieznane polecenia do serwera.
 
+%package -n irssi-script-dns
+Summary:	/DNS <nick>|<host>|<ip>
+Version:	2.1
+License:	Public Domain
+Group:		Applications/Communications
+Requires:	irssi
+
+%description -n irssi-script-dns
+/DNS <nick>|<host>|<ip> ...
+
 %package -n irssi-script-forwardfix
 Summary:	forwardfix script
 Summary(pl.UTF-8):	Skrypt forwardfix
@@ -214,6 +272,37 @@ Try to get your nick back when it becomes available.
 Skrypt keepnick pozwala odzyskać swojego nicka kiedy stanie się
 dostępny.
 
+%package -n irssi-script-kills
+Summary:	Displays kills with more understandable messages
+Version:	1.00
+License:	Public Domain
+Group:		Applications/Communications
+Requires:	irssi
+
+%description -n irssi-script-kills
+Displays kills with more understandable messages.
+
+%package -n irssi-script-mail
+Summary:	Counter statusbar item with multiple mailbox support
+Version:	2.92
+License:	Public Domain
+Group:		Applications/Communications
+Requires:	irssi
+
+%description -n irssi-script-mail
+Fully customizable mail counter statusbar item with multiple mailbox
+and multiple Maildir support.
+
+%package -n irssi-script-mlock
+Summary:	Channel mode locking
+Version:	1.00
+License:	Public Domain
+Group:		Applications/Communications
+Requires:	irssi
+
+%description -n irssi-script-mlock
+Channel mode locking.
+
 %package -n irssi-script-nocaps
 Summary:	nocaps script
 Summary(pl.UTF-8):	Skrypt nocaps
@@ -244,6 +333,37 @@ Userlist with autoopping, autokicking etc.
 Skrypt people udostępnia listę użytkowników z opcjami autoop, autokick
 itp.
 
+%package -n irssi-script-quitmsg
+Summary:	Random quit messages
+Version:	1.00
+License:	Public Domain
+Group:		Applications/Communications
+Requires:	irssi
+
+%description -n irssi-script-quitmsg
+Random quit messages.
+
+%package -n irssi-script-sb_search
+Summary:	Search in your scrollback, scroll to a match
+Version:	1.0
+License:	GPL v2+
+Group:		Applications/Communications
+Requires:	irssi
+
+%description -n irssi-script-sb_search
+Search in your scrollback, scroll to a match.
+
+%package -n irssi-script-scriptassist
+Summary:	Keeps your scripts on the cutting edge
+Version:	2003020803
+License:	GPL v2
+Group:		Applications/Communications
+Requires:	irssi
+
+%description -n irssi-script-scriptassist
+Keeps your scripts on the cutting edge by downloading scripts and
+dependant CPAN modules from network.
+
 %package -n irssi-script-seen
 Summary:	seen script
 Summary(pl.UTF-8):	Skrypt seen
@@ -256,6 +376,16 @@ Tell people when other people were online.
 
 %description -n irssi-script-seen -l pl.UTF-8
 Skrypt seen informuje ludzi o tym, że inni są online.
+
+%package -n irssi-script-splitlong
+Summary:	Split overlong PRIVMSGs to msgs with length allowed by ircd
+Version:	0.20
+License:	Public Domain
+Group:		Applications/Communications
+Requires:	irss
+
+%description -n irssi-script-splitlong
+Split overlong PRIVMSGs to msgs with length allowed by ircd
 
 %package -n irssi-script-tab_stop
 Summary:	tab_stop script
@@ -271,6 +401,16 @@ of whitespaces.
 
 %description -n irssi-script-tab_stop -l pl.UTF-8
 Ten skrypt zastępuje złe odwrócone 'I' konfigurowalną liczbą spacji.
+
+%package -n irssi-script-usercount
+Summary:	Adds a usercount for a channel as a statusbar item
+Version:	1.16
+License:	GPL v2+
+Group:		Applications/Communications
+Requires:	irssi
+
+%description -n irssi-script-usercount
+Adds a usercount for a channel as a statusbar item
 
 %package -n irssi-script-vtk
 Summary:	vtk script
@@ -314,12 +454,25 @@ cp -a %{SOURCE9} .
 cp -a %{SOURCE10} .
 cp -a %{SOURCE11} .
 %patch0 -p1
+%{__tar} -xzf %{SOURCE12}
+mv irssi-%{irssi_ver}/scripts/*.pl .
+%patch1 -p1
 
 # make rpm scan perl deps: add perl preamble
 # if anyone has better idea/implementation, go ahead
 sed -i -e '1{
-	/perl/!i#!%{_bindir}/perl
+	/perl/!i#!%{__perl}
 }' *.pl
+
+# make script for making readme
+for a in *.pl; do
+	sed -ne '/^\$VERSION/p;/^%IRSSI/,/);/p;' $a;
+	printf '$s = q/%s/;' $a
+	echo 'printf "%s:\t%s-%s\t%s\n", $s, $IRSSI{name}, $VERSION, $IRSSI{description};'
+done > README.PL
+
+%build
+%{__perl} README.PL > README
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -331,14 +484,27 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc README
 
 %files -n irssi-script-amarok
 %defattr(644,root,root,755)
 %{_scriptdir}/amarok_ssh.pl
 
+%files -n irssi-script-autoop
+%defattr(644,root,root,755)
+%{_scriptdir}/autoop.pl
+
 %files -n irssi-script-autorealname
 %defattr(644,root,root,755)
 %{_scriptdir}/autorealname.pl
+
+%files -n irssi-script-autorejoin
+%defattr(644,root,root,755)
+%{_scriptdir}/autorejoin.pl
+
+%files -n irssi-script-buf
+%defattr(644,root,root,755)
+%{_scriptdir}/buf.pl
 
 %files -n irssi-script-chanact
 %defattr(644,root,root,755)
@@ -356,6 +522,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_scriptdir}/dispatch.pl
 
+%files -n irssi-script-dns
+%defattr(644,root,root,755)
+%{_scriptdir}/dns.pl
+
 %files -n irssi-script-forwardfix
 %defattr(644,root,root,755)
 %{_scriptdir}/forwardfix.pl
@@ -368,6 +538,18 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_scriptdir}/keepnick.pl
 
+%files -n irssi-script-kills
+%defattr(644,root,root,755)
+%{_scriptdir}/kills.pl
+
+%files -n irssi-script-mail
+%defattr(644,root,root,755)
+%{_scriptdir}/mail.pl
+
+%files -n irssi-script-mlock
+%defattr(644,root,root,755)
+%{_scriptdir}/mlock.pl
+
 %files -n irssi-script-nocaps
 %defattr(644,root,root,755)
 %{_scriptdir}/nocaps.pl
@@ -376,13 +558,33 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_scriptdir}/people.pl
 
+%files -n irssi-script-quitmsg
+%defattr(644,root,root,755)
+%{_scriptdir}/quitmsg.pl
+
+%files -n irssi-script-sb_search
+%defattr(644,root,root,755)
+%{_scriptdir}/sb_search.pl
+
+%files -n irssi-script-scriptassist
+%defattr(644,root,root,755)
+%{_scriptdir}/scriptassist.pl
+
 %files -n irssi-script-seen
 %defattr(644,root,root,755)
 %{_scriptdir}/seen.pl
 
+%files -n irssi-script-splitlong
+%defattr(644,root,root,755)
+%{_scriptdir}/splitlong.pl
+
 %files -n irssi-script-tab_stop
 %defattr(644,root,root,755)
 %{_scriptdir}/tab_stop.pl
+
+%files -n irssi-script-usercount
+%defattr(644,root,root,755)
+%{_scriptdir}/usercount.pl
 
 %files -n irssi-script-vtk
 %defattr(644,root,root,755)
