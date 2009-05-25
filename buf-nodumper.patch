@@ -1,0 +1,10 @@
+--- irssi-scripts/buf.pl~	2009-05-26 02:10:13.000000000 +0300
++++ irssi-scripts/buf.pl	2009-05-26 02:10:42.257036464 +0300
+@@ -36,7 +36,6 @@
+ # A: Probably not, but if you can do it, tell me how.
+ 
+ use Irssi::TextUI;
+-use Data::Dumper;
+ 
+ my %suppress;
+ 
