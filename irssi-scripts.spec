@@ -5,7 +5,7 @@ Summary:	Irssi scripts pack
 Summary(pl.UTF-8):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.5
-Release:	1
+Release:	2
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/%{name}/irssi-scripts.tar.gz
@@ -382,7 +382,7 @@ Summary:	Split overlong PRIVMSGs to msgs with length allowed by ircd
 Version:	0.20
 License:	Public Domain
 Group:		Applications/Communications
-Requires:	irss
+Requires:	irssi
 
 %description -n irssi-script-splitlong
 Split overlong PRIVMSGs to msgs with length allowed by ircd
