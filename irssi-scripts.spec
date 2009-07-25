@@ -5,7 +5,7 @@ Summary:	Irssi scripts pack
 Summary(pl.UTF-8):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.5
-Release:	2
+Release:	3
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/%{name}/irssi-scripts.tar.gz
@@ -106,7 +106,7 @@ Summary:	Simple auto-op script
 Version:	1.00
 License:	Public Domain
 Group:		Applications/Communications
-Requires:	irssi
+Requires:	irssi >= 0.8.13-2
 
 %description -n irssi-script-autoop
 Simple auto-op script.
@@ -131,7 +131,7 @@ Summary:	Automatically rejoin to channel after kicked
 Version:	1.00
 License:	Public Domain
 Group:		Applications/Communications
-Requires:	irssi
+Requires:	irssi >= 0.8.13-2
 
 %description -n irssi-script-autorejoin
 Automatically rejoin to channel after kicked.
@@ -141,7 +141,7 @@ Summary:	Scroll buffer restorer
 Version:	2.13
 License:	Public Domain
 Group:		Applications/Communications
-Requires:	irssi
+Requires:	irssi >= 0.8.13-2
 
 %description -n irssi-script-buf
 Saves the buffer for /upgrade, so that no information is lost.
@@ -222,7 +222,7 @@ Summary:	/DNS <nick>|<host>|<ip>
 Version:	2.1
 License:	Public Domain
 Group:		Applications/Communications
-Requires:	irssi
+Requires:	irssi >= 0.8.13-2
 
 %description -n irssi-script-dns
 /DNS <nick>|<host>|<ip> ...
@@ -277,7 +277,7 @@ Summary:	Displays kills with more understandable messages
 Version:	1.00
 License:	Public Domain
 Group:		Applications/Communications
-Requires:	irssi
+Requires:	irssi >= 0.8.13-2
 
 %description -n irssi-script-kills
 Displays kills with more understandable messages.
@@ -287,7 +287,7 @@ Summary:	Counter statusbar item with multiple mailbox support
 Version:	2.92
 License:	Public Domain
 Group:		Applications/Communications
-Requires:	irssi
+Requires:	irssi >= 0.8.13-2
 
 %description -n irssi-script-mail
 Fully customizable mail counter statusbar item with multiple mailbox
@@ -298,7 +298,7 @@ Summary:	Channel mode locking
 Version:	1.00
 License:	Public Domain
 Group:		Applications/Communications
-Requires:	irssi
+Requires:	irssi >= 0.8.13-2
 
 %description -n irssi-script-mlock
 Channel mode locking.
@@ -338,7 +338,7 @@ Summary:	Random quit messages
 Version:	1.00
 License:	Public Domain
 Group:		Applications/Communications
-Requires:	irssi
+Requires:	irssi >= 0.8.13-2
 
 %description -n irssi-script-quitmsg
 Random quit messages.
@@ -348,7 +348,7 @@ Summary:	Search in your scrollback, scroll to a match
 Version:	1.0
 License:	GPL v2+
 Group:		Applications/Communications
-Requires:	irssi
+Requires:	irssi >= 0.8.13-2
 
 %description -n irssi-script-sb_search
 Search in your scrollback, scroll to a match.
@@ -358,7 +358,7 @@ Summary:	Keeps your scripts on the cutting edge
 Version:	2003020803
 License:	GPL v2
 Group:		Applications/Communications
-Requires:	irssi
+Requires:	irssi >= 0.8.13-2
 
 %description -n irssi-script-scriptassist
 Keeps your scripts on the cutting edge by downloading scripts and
@@ -382,7 +382,7 @@ Summary:	Split overlong PRIVMSGs to msgs with length allowed by ircd
 Version:	0.20
 License:	Public Domain
 Group:		Applications/Communications
-Requires:	irssi
+Requires:	irssi >= 0.8.13-2
 
 %description -n irssi-script-splitlong
 Split overlong PRIVMSGs to msgs with length allowed by ircd
@@ -407,7 +407,7 @@ Summary:	Adds a usercount for a channel as a statusbar item
 Version:	1.16
 License:	GPL v2+
 Group:		Applications/Communications
-Requires:	irssi
+Requires:	irssi >= 0.8.13-2
 
 %description -n irssi-script-usercount
 Adds a usercount for a channel as a statusbar item
