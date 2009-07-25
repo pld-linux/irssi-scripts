@@ -5,7 +5,7 @@ Summary:	Irssi scripts pack
 Summary(pl.UTF-8):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.5
-Release:	3
+Release:	4
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/%{name}/irssi-scripts.tar.gz
@@ -34,6 +34,8 @@ Source11:	http://entermedia.pl/~shadzik/vtk/vtk.pl
 # Source11-md5:	9e34c85f1084afaa71590bc544dd4e76
 Source12:	http://www.irssi.org/files/irssi-%{irssi_ver}.tar.gz
 # Source12-md5:	226f194576895ff3075c164523806d06
+Source13:	http://scripts.irssi.org/scripts/gtrans.pl
+# Source13-md5:	4dae0dc91daf8bf970a79a170184deb1
 Patch0:		amarok_ssh-opt-user.patch
 Patch1:		buf-nodumper.patch
 URL:		http://scripts.irssi.org/
@@ -51,6 +53,7 @@ Requires:	irssi-script-cp2iso
 Requires:	irssi-script-dispatch
 Requires:	irssi-script-dns
 Requires:	irssi-script-forwardfix
+Requires:	irssi-script-gtrans
 Requires:	irssi-script-hideauth
 Requires:	irssi-script-keepnick
 Requires:	irssi-script-kills
@@ -156,15 +159,15 @@ URL:		http://bc-bd.org/software.php3#irssi
 Requires:	irssi
 
 %description -n irssi-script-chanact
-Adds new powerful and customizable [Act: ...] item
-(channelnames, modes, alias).
+Adds new powerful and customizable [Act: ...] item (channelnames,
+modes, alias).
 
 Lets you give alias characters to windows so that you can select those
 with meta-<char>.
 
 %description -n irssi-script-chanact -l pl.UTF-8
-Skrypt dodający potężny i konfigurowalny element [Act: ...]
-(z nazwami kanałów, trybami, aliasami).
+Skrypt dodający potężny i konfigurowalny element [Act: ...] (z nazwami
+kanałów, trybami, aliasami).
 
 Pozwala nadać znaki aliasów do okien, dzięki czemu można wybierać okna
 poprzez meta-<znak>.
@@ -240,6 +243,16 @@ forwardfix script.
 
 %description -n irssi-script-forwardfix -l pl.UTF-8
 Skrypt forwardfix.
+
+%package -n irssi-script-gtrans
+Summary:	Translation via the Google Language API
+Version:	0.0.1
+Group:		Applications/Communications
+URL:		http://scripts.irssi.org/html/gtrans.pl.html
+Requires:	irssi
+
+%description -n irssi-script-gtrans
+Translation via the Google Language API
 
 %package -n irssi-script-hideauth
 Summary:	hideauth script
@@ -453,6 +466,7 @@ cp -a %{SOURCE8} .
 cp -a %{SOURCE9} .
 cp -a %{SOURCE10} .
 cp -a %{SOURCE11} .
+cp -a %{SOURCE13} .
 %patch0 -p1
 %{__tar} -xzf %{SOURCE12}
 mv irssi-%{irssi_ver}/scripts/*.pl .
@@ -460,9 +474,10 @@ mv irssi-%{irssi_ver}/scripts/*.pl .
 
 # make rpm scan perl deps: add perl preamble
 # if anyone has better idea/implementation, go ahead
-sed -i -e '1{
+%{__sed} -i -e '1{
 	/perl/!i#!%{__perl}
 }' *.pl
+%{__sed} -i -e '1s,#!.*perl,#!%{__perl},' *.pl
 
 # make script for making readme
 for a in *.pl; do
@@ -529,6 +544,10 @@ rm -rf $RPM_BUILD_ROOT
 %files -n irssi-script-forwardfix
 %defattr(644,root,root,755)
 %{_scriptdir}/forwardfix.pl
+
+%files -n irssi-script-gtrans
+%defattr(644,root,root,755)
+%{_scriptdir}/gtrans.pl
 
 %files -n irssi-script-hideauth
 %defattr(644,root,root,755)
