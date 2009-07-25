@@ -28,7 +28,7 @@ Source8:	http://www.irssi.org/scripts/scripts/keepnick.pl
 # Source8-md5:	e50707d22a9338df6fb9b39dcdefb7e2
 Source9:	http://www.irssi.org/scripts/scripts/tab_stop.pl
 # Source9-md5:	ffa8d8381c41521365cacf9b1bb13951
-Source10:	http://netx.waw.pl/~agaran/forwardfix.pl
+Source10:	forwardfix.pl
 # Source10-md5:	8bf85f7368933a4e0cb4f875bac28733
 Source11:	http://entermedia.pl/~shadzik/vtk/vtk.pl
 # Source11-md5:	9e34c85f1084afaa71590bc544dd4e76
@@ -235,7 +235,6 @@ Summary:	forwardfix script
 Summary(pl.UTF-8):	Skrypt forwardfix
 Version:	20060902
 Group:		Applications/Communications
-URL:		http://www.netx.waw.pl/~agaran/
 Requires:	irssi
 
 %description -n irssi-script-forwardfix
