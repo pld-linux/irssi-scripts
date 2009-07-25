@@ -1,30 +1,28 @@
 # This script is possibly buggy, but i haven't got much time
 # to test it. Use at your own risk.
 # a g a r a n   a t   p l d   d a s h   l i n u x   d o t   o r g
+#
+# Now maintained at http://cvs.pld-linux.org/cgi-bin/cvsweb/packages/irssi-scripts/forwardfix.pl
 
 
 use strict;
 use Irssi;
 use vars qw($VERSION %IRSSI);
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 %IRSSI = (
 		authors => 'Maciej \'agaran\' Pijanka',
 		contact => 'agaran@pld-linux.org',
 		name => 'forwardfix',
 		description => 'hides crossnetwork channel joining',
-		license => 'GPL',
-		url => 'http://netx.waw.pl/~agaran/forwardfix.pl'
+		license => 'GPL'
 );
 
 #### Interface ###
 #
 #
 #
-
-# /upgrade_ffix
-# dont do it, may harm your childrens, blow your drives and so on
 
 # VARIABLES
 # =========
@@ -36,8 +34,8 @@ Irssi::settings_add_int("forward", "forward_transmod",0);
 Irssi::settings_add_bool("forward","forward_addnet",1);
 Irssi::settings_add_str("forward", "forward_sep",'$');
 
-Irssi::print("Its, beta, dont rely on it \nif something like forwardfix-debug: [something]\nhappens, please let me know");
-Irssi::print("-- agaran (20060902-2050) ");
+Irssi::print("Its, beta, dont rely on it \nif something like forwardfix-debug: [something]\nhappens report at http://bugs.pld-linux.org");
+Irssi::print("-- agaran ");
 
 our %crude_hack = ();
 
@@ -51,6 +49,12 @@ Irssi::signal_add "event privmsg", sub {
 	my $sep = Irssi::settings_get_str("forward_sep");
 	my $dash = Irssi::settings_get_bool("forward_dash");
 	my $targetl = lc $target;
+	# RFC2812
+	#  nickname   =  ( letter / special ) *8( letter / digit / special / "-" )
+	#  letter     =  %x41-5A / %x61-7A       ; A-Z / a-z
+	#  digit      =  %x30-39                 ; 0-9
+	#  special    =  %x5B-60 / %x7B-7D       ; "[", "]", "\", "`", "_", "^", "{", "|", "}"
+	my $re_nick = qr/[A-Za-z0-9\[\]\\\`\_\^\{\|\}\-]+/o;
 
 	map { split /:/,$_; $chanset->{lc $_[0]} = lc $_[1]; } split /[ ,]+/,Irssi::settings_get_str("forward_chanset");
 	map { split /:/,$_; $netmap->{lc $_[0]} = $_[1]; } split /[ ,]+/,Irssi::settings_get_str("forward_netmap");
@@ -63,7 +67,7 @@ Irssi::signal_add "event privmsg", sub {
 	}
 
 	if (defined $chanset->{$targetl} && (lc $nick eq $chanset->{$targetl} || ($dash && lc $nick eq $chanset->{$targetl}.'-' ))) {
-		if($text =~ /^\(?([a-zA-Z\-_0-9\`\^|]+)?\@([A-Z]+)\) (.*)$/) { # maska maska maska
+		if($text =~ /^\(?($re_nick)?\@([A-Z]+)\) (.*)$/) { # maska maska maska
 			($nick,$fwd,$text) = ($1,$2,$3);
 			$text .= " [$fwd]" if($addnet);
 
@@ -75,13 +79,13 @@ Irssi::signal_add "event privmsg", sub {
 				Irssi::signal_emit("event privmsg", $server, "$target :$text", $nick, $nick.'@'.$fwd);
 			}
 
-		} elsif ($text =~ /^\* \(?([a-zA-Z\-_0-9\`\^\|]+)?\@([A-Z]+)\) (.*)$/) { 
+		} elsif ($text =~ /^\* \(?($re_nick)?\@([A-Z]+)\) (.*)$/) { 
 			($nick,$fwd,$text) = ($1,$2,$3);
 			$text .= " [$fwd]" if($addnet);
 			Irssi::signal_stop();
 			Irssi::signal_emit("event privmsg", $server, "$target :ACTION $text", $nick, $nick.'@'.$fwd);
 			
-		} elsif ($text =~ /^\*\*\* Join ([a-zA-Z\-_0-9\`\]\[\^\|]+) \(([a-z\/\=+\~^A-Z\[\-_0-9\^:\@\.]+)\) on (.*)$/ ) {
+		} elsif ($text =~ /^\*\*\* Join ($re_nick) \(([a-z\/\=+\~^A-Z\[\-_0-9\^:\@\.]+)\) on (.*)$/ ) {
 			($nick,$text,$fwd) = ($1,$2,$3);
 
 			$fn = $netmap->{lc $fwd} if(defined $netmap->{lc $fwd});
@@ -92,7 +96,7 @@ Irssi::signal_add "event privmsg", sub {
 				Irssi::signal_emit("event join", $server, ":$target", $nick.$sep.$fn, $text);
 			}
 			
-		} elsif ($text =~ /^\*\*\* Part ([a-zA-Z\-_0-9\`\]\[\^\|]+) \(([a-z\/\=+\~^A-Z\[\-_0-9\^:\@\.]+)\) on (.*)$/ ) {
+		} elsif ($text =~ /^\*\*\* Part ($re_nick) \(([a-z\/\=+\~^A-Z\[\-_0-9\^:\@\.]+)\) on (.*)$/ ) {
 			($nick,$text,$fwd) = ($1,$2,$3);
 			
 			$fn = $netmap->{lc $fwd} if(defined $netmap->{lc $fwd});
@@ -102,7 +106,7 @@ Irssi::signal_add "event privmsg", sub {
 				Irssi::signal_emit("event part", $server, "$target :", $nick.$sep.$fn, $text);
 			}
 
-		} elsif ($text =~ /^\*\*\* \[signoff\/#[a-zA-Z0-9\|]+\] ([a-zA-Z\/\=\-_0-9\`\]\^|]+) \((.*)\) on (.*)$/ ) {
+		} elsif ($text =~ /^\*\*\* \[signoff\/#$re_nick\] ([a-zA-Z\/\=\-_0-9\`\]\^|]+) \((.*)\) on (.*)$/ ) {
 
 			($nick,$text,$fwd) = ($1,$2,$3);
 
@@ -116,7 +120,7 @@ Irssi::signal_add "event privmsg", sub {
 				}
 			}
 			
-		} elsif ($text =~ /^\*\*\* \[mode\/#[a-zA-Z0-9]+\(([\+\-vo]+) ([a-zA-Z\-\+_0-9\`\^\[\]\|\ ]+)\)\] by ([a-zA-Z\.\*\-_0-9\`\^\|]+) on (.*)$/ ) {
+		} elsif ($text =~ /^\*\*\* \[mode\/#[a-zA-Z0-9]+\(([\+\-vo]+) ($re_nick)\)\] by ($re_nick) on (.*)$/ ) {
 			my ($ml,$or,$nl);
 			($ml,$nl,$or,$fwd) = ($1,$2,$3,$4);
 			
@@ -129,7 +133,7 @@ Irssi::signal_add "event privmsg", sub {
 				Irssi::signal_emit("event mode",$server, "$target $ml $nl",$or.$sep.$fn,$or.'@'.$fwd);
 			}
 			# mody dalsze
-		} elsif ($text =~ /^\*\*\* \[mode\/#[a-zA-Z0-9]+\(([\+\-ben]+) ([a-zA-Z\-\!\?\*\@\.\+_0-9|\^\`\ ]+)\)\] by ([a-zA-Z\-_0-9\`\^|]+) on (.*)$/ ) {
+		} elsif ($text =~ /^\*\*\* \[mode\/#[a-zA-Z0-9]+\(([\+\-ben]+) ($re_nick)\)\] by ($re_nick) on (.*)$/ ) {
 			my ($ml,$or,$nl);
 			($ml,$nl,$or,$fwd) = ($1,$2,$3,$4);
 			
@@ -139,7 +143,7 @@ Irssi::signal_add "event privmsg", sub {
 				Irssi::signal_stop();
 				Irssi::signal_emit("event mode",$server, "$target $ml $nl",$or.$sep.$fn,$or.'@'.$fwd);
 			}
-		} elsif ($text =~ /^\*\*\*  Nick Change: ([a-zA-Z\-_0-9\`\]\^|]+) is now ([a-zA-Z\-_0-9\`\]\^|]+) on (.*)$/ ) {
+		} elsif ($text =~ /^\*\*\*  Nick Change: ($re_nick) is now ($re_nick) on (.*)$/ ) {
 			my ($n1,$n2);
 			($n1,$n2,$fwd) = ($1,$2,$3);
 			
@@ -149,7 +153,7 @@ Irssi::signal_add "event privmsg", sub {
 				Irssi::signal_stop();
 				Irssi::signal_emit("event nick", $server, ':'.$n2.$sep.$fn, $n1.$sep.$fn);
 			}
-		} elsif ($text =~ /^\*\*\* ([a-zA-Z\-_0-9\`\]\^|]+) was kicked off (#[a-zA-Z0-9]+) by ([a-zA-Z\-_0-9\`\]\^|]+) on ([a-zA-Z]+) \((.*)\)$/) {
+		} elsif ($text =~ /^\*\*\* ($re_nick) was kicked off (#[a-zA-Z0-9]+) by ($re_nick) on ([a-zA-Z]+) \((.*)\)$/) {
 			my ($n1,$n2,$fwd,$reason) = ($1,$3,$4,$5);
 
 			$fn = $netmap->{lc $fwd} if(defined $netmap->{lc $fwd});
@@ -162,18 +166,6 @@ Irssi::signal_add "event privmsg", sub {
 			printf("forwardfix-debug: [$text]");
 		}
 	}
-};
-
-Irssi::command_bind "upgrade_ffix", sub {
-		my $dir = Irssi::get_irssi_dir;
-		open P,'wget -O '.$dir.'/scripts/forwardfix.pl http://netx.waw.pl/~agaran/forwardfix.pl 2>&1|';
-		my $q = '';
-		while (not eof P) {
-				$q .= <P>;
-		}
-		close P;
-		$q =~ s/%7E/~/g;
-		Irssi::print($q);
 };
 
 Irssi::print("ForwardFIX Init Done");
