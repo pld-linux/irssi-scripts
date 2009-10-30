@@ -1,0 +1,4 @@
+- gtrans updated:
+  - add nick blacklist via gtrans_blacklist glob-like pattern
+  - make gtrans_whitelist work also glob-like not only "*"
+  - fix some perl warnings of variable redefinition
