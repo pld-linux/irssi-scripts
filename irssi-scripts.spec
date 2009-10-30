@@ -5,7 +5,7 @@ Summary:	Irssi scripts pack
 Summary(pl.UTF-8):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.5
-Release:	4
+Release:	5
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/%{name}/irssi-scripts.tar.gz
@@ -249,7 +249,6 @@ Version:	0.0.1
 Group:		Applications/Communications
 URL:		http://scripts.irssi.org/html/gtrans.pl.html
 Requires:	irssi
-Requires:   perl-WebService-Google-Language
 
 %description -n irssi-script-gtrans
 Translation via the Google Language API
