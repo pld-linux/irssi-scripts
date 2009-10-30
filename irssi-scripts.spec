@@ -249,6 +249,7 @@ Version:	0.0.1
 Group:		Applications/Communications
 URL:		http://scripts.irssi.org/html/gtrans.pl.html
 Requires:	irssi
+Requires:   perl-WebService-Google-Language
 
 %description -n irssi-script-gtrans
 Translation via the Google Language API
