@@ -1,4 +1,4 @@
-#!/usr/bin/env perl -w
+#!/usr/bin/perl -w
 # vim: set sw=2 ts=2 sta et:
 
 # GTrans: Automatic translation in Irssi using the Google Language API
@@ -53,6 +53,7 @@
 #     /set gtrans_output_auto 2
 #     /set gtrans_output_auto_lang fi
 #     /set gtrans_whitelist #mychan james
+#     /set gtrans_blacklist CIA-* abw stbr
 #
 #   Incoming or outgoing messages on the #mychan channel and queries
 #   from/to james will now be automatically translated: Incoming
@@ -106,6 +107,10 @@
 #     xx:  Space-separated list of channels and nicks that can be
 #          translated. This applies to both incoming and outgoing
 #          messages. Specify "*" to whitelist everything.
+#
+#   gtrans_blacklist ("")
+#     xx:  Space-separated list of channels and nicks that are ignored if they get enabled by gtrans_whitelist
+#          This applies to both incoming and outgoing messages. You may use "*" to match by pattern.
 #
 # Links / more info:
 #   List of supported languages in the Google Language API:
@@ -228,6 +233,35 @@ sub wgl_process {
   return $result;
 }
 
+# return true if $target is in $list.
+# allows '*' to match a glob-like pattern
+sub is_listed {
+  my ($list, $target) = @_;
+
+  for my $q (@$list) {
+    my $p = quotemeta($q);
+    $p =~ s/\\\*/.*/g;
+    if ($target eq $q or $target =~ /^$p$/) {
+      return 1;
+    }
+  }
+  return 0;
+}
+
+sub is_blacklisted {
+  my ($target) = @_;
+  my @blacklist = split(/ /, Irssi::settings_get_str("gtrans_blacklist"));
+
+  return is_listed(\@blacklist, $target);
+}
+
+sub is_whitelisted {
+  my ($target) = @_;
+  my @whitelist = split(/ /, Irssi::settings_get_str("gtrans_whitelist"));
+
+  return is_listed(\@whitelist, $target);
+}
+
 sub event_input_msg {
   my $subname = "event_input_msg";
   my ($server, $msg, $nick, $address, $target) = @_;
@@ -247,26 +281,18 @@ sub event_input_msg {
 
     # Check whether the source $nick is in the whitelist.
     dbg(3, "$subname() Looking for nick \"$nick\" in whitelist");
-    foreach (split(/ /,
-        Irssi::settings_get_str("gtrans_whitelist"))) {
-      $do_translation = 1 if ($nick eq $_ or $_ eq "*");
-    }
+    $do_translation = 1 if is_whitelisted($nick) && !is_blacklisted($nick);
   } else { # $sig eq "message public"
     # Public message.
     $witem = Irssi::window_item_find($target);
 
-    # Check whether $target is in the whitelist.
-    dbg(3, "$subname() Looking for channel \"$target\" " .
-           "in whitelist");
-    foreach (split(/ /,
-        Irssi::settings_get_str("gtrans_whitelist"))) {
-      $do_translation = 1 if ($target eq $_ or $_ eq "*");
-    }
+    dbg(3, "$subname() Looking for channel \"$target\" in whitelist");
+    # Check whether $target is in the whitelist
+    $do_translation = 1 if is_whitelisted($target) && !is_blacklisted($nick);
   }
 
   unless ($do_translation) {
-    dbg(1, sprintf "Channel (\"$target\") or nick (\"$nick\") is " .
-                   "not whitelisted");
+    dbg(1, sprintf "Channel (\"$target\") or nick (\"$nick\") is not whitelisted");
     return;
   }
 
@@ -312,7 +338,7 @@ sub event_input_msg {
   my $reliable = $result->is_reliable;
 
   # Prepare arguments for translation.
-  my %args = (
+  %args = (
     "func" => sub { $service->translate(@_) },
     "text" => $msg,
     "dest" => (split(/ /,
@@ -320,7 +346,7 @@ sub event_input_msg {
   );
 
   # Run translation.
-  my $result = wgl_process(%args);
+  $result = wgl_process(%args);
 
   dbg(4, "$subname() wgl_process() translate returned: " .
          Dumper(\$result));
@@ -397,14 +423,7 @@ sub event_output_msg {
     dbg(3, "$subname() Looking for target \"" .
            $witem->{name} . "\" in whitelist");
 
-    my $do_translation = 0;
-    foreach (split(/ /,
-        Irssi::settings_get_str("gtrans_whitelist"))) {
-      $do_translation = 1 if ($witem->{name} eq $_);
-      $do_translation = 1 if ($_ eq "*");
-    }
-
-    unless ($do_translation) {
+    unless (is_whitelisted($witem->{name})) {
       dbg(1, sprintf "Target \"" . $witem->{name} . "\" is " .
                      "not whitelisted");
       return;
@@ -662,6 +681,7 @@ Irssi::settings_add_str ("gtrans", "gtrans_output_auto_lang", "fi");
 Irssi::settings_add_str ("gtrans", "gtrans_my_lang",          "en");
 Irssi::settings_add_int ("gtrans", "gtrans_debug",               0);
 Irssi::settings_add_str ("gtrans", "gtrans_whitelist",          "");
+Irssi::settings_add_str ("gtrans", "gtrans_blacklist",          "");
 
 # Register /gtrans command.
 Irssi::command_bind("gtrans",                         "cmd_gtrans");

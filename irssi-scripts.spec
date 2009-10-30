@@ -34,8 +34,8 @@ Source11:	http://entermedia.pl/~shadzik/vtk/vtk.pl
 # Source11-md5:	9e34c85f1084afaa71590bc544dd4e76
 Source12:	http://www.irssi.org/files/irssi-%{irssi_ver}.tar.gz
 # Source12-md5:	226f194576895ff3075c164523806d06
-Source13:	http://scripts.irssi.org/scripts/gtrans.pl
-# Source13-md5:	4dae0dc91daf8bf970a79a170184deb1
+# http://scripts.irssi.org/scripts/gtrans.pl
+Source13:	gtrans.pl
 Patch0:		amarok_ssh-opt-user.patch
 Patch1:		buf-nodumper.patch
 URL:		http://scripts.irssi.org/
