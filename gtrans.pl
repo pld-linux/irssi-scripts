@@ -211,8 +211,11 @@ sub usage {
 }
 
 sub dehtml {
-  # FIXME: The only HTML entity seen so far is &#39;
   $_[0] =~ s/&#39;/'/g;
+  $_[0] =~ s/&gt;/>/g;
+  $_[0] =~ s/&lt;/</g;
+  $_[0] =~ s/&quot;/"/g;
+  $_[0] =~ s/&amp;/&/g;
 }
 
 sub wgl_process {
