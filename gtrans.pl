@@ -222,8 +222,15 @@ sub wgl_process {
   my %args = @_;
   dbg(5, "wgl_process(): input %args: " . Dumper(\%args));
 
-  my $result = $args{func}(%args);
-  dbg(4, "wgl_process() wgl_func() output: " . Dumper(\$result));
+  my $result;
+  eval {
+    $result = $args{func}(%args);
+    dbg(4, "wgl_process() wgl_func() output: " . Dumper(\$result));
+  };
+  if ($@) {
+    err(sprintf "wgl_process() wgl_func() %s", $@);
+    return;
+  }
 
   my $ok = 1;
   if ($result->error) {
@@ -311,6 +318,9 @@ sub event_input_msg {
 
   # Run language detection.
   my $result = wgl_process(%args);
+  if (!$result) {
+    return;
+  }
 
   dbg(4, "$subname() wgl_process() detect returned: " .
          Dumper(\$result));
@@ -341,6 +351,7 @@ sub event_input_msg {
   my $reliable = $result->is_reliable;
 
   # Prepare arguments for translation.
+  # TODO: need wrap eval around service translate
   %args = (
     "func" => sub { $service->translate(@_) },
     "text" => $msg,
@@ -350,6 +361,9 @@ sub event_input_msg {
 
   # Run translation.
   $result = wgl_process(%args);
+  if (!$result) {
+    return;
+  }
 
   dbg(4, "$subname() wgl_process() translate returned: " .
          Dumper(\$result));
@@ -452,6 +466,9 @@ sub event_output_msg {
 
   # Run translation.
   my $result = wgl_process(%args);
+  if (!$result) {
+    return;
+  }
 
   dbg(4, "$subname() wgl_process() output: " .
          Dumper(\$result));
@@ -644,6 +661,9 @@ sub cmd_gtrans {
 
     # Run translation.
     my $result = wgl_process(%args);
+    if (!$result) {
+      return;
+    }
 
     dbg(4, "$subname() wgl_process() output: " . Dumper(\$result));
 
