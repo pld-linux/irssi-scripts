@@ -244,7 +244,7 @@ Skrypt forwardfix.
 
 %package -n irssi-script-gtrans
 Summary:	Translation via the Google Language API
-Version:	0.0.1
+Version:	0.2
 Group:		Applications/Communications
 URL:		http://scripts.irssi.org/html/gtrans.pl.html
 Requires:	irssi
