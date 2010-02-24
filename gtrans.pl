@@ -351,7 +351,6 @@ sub event_input_msg {
   my $reliable = $result->is_reliable;
 
   # Prepare arguments for translation.
-  # TODO: need wrap eval around service translate
   %args = (
     "func" => sub { $service->translate(@_) },
     "text" => $msg,
