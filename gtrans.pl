@@ -137,7 +137,7 @@ use vars qw($VERSION %IRSSI);
 use Irssi;
 $VERSION = "0.2";
 %IRSSI = (
-    authors     => "Elan, Ruusamäe, Sven Ulland",
+    authors     => "Elan Ruusamäe, Sven Ulland",
     contact     => 'glen@delfi.ee, svensven@gmail.com',
     name        => "GTrans",
     description => "Translation via the Google Language API",
