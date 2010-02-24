@@ -135,14 +135,14 @@ use strict;
 
 use vars qw($VERSION %IRSSI);
 use Irssi;
-$VERSION = "0.0.1";
+$VERSION = "0.2";
 %IRSSI = (
-    authors     => "Sven Ulland",
-    contact     => "svensven\@gmail.com",
+    authors     => "Elan, Ruusamäe, Sven Ulland",
+    contact     => 'glen@delfi.ee, svensven@gmail.com',
     name        => "GTrans",
     description => "Translation via the Google Language API",
     license     => "GPLv2",
-    url         => "http://scripts.irssi.org/",
+    url         => "http://cvs.pld-linux.org/cgi-bin/cvsweb.cgi/packages/irssi-scripts/gtrans.pl",
     changed     => $VERSION,
     modules     => "WebService::Google::Language",
     commands    => "gtrans"
