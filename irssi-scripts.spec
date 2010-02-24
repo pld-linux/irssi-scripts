@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 # scripts from base tarball
-%define		irssi_ver	0.8.13
+%define		irssi_ver	0.8.14
 Summary:	Irssi scripts pack
 Summary(pl.UTF-8):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
@@ -33,7 +33,7 @@ Source10:	forwardfix.pl
 Source11:	http://entermedia.pl/~shadzik/vtk/vtk.pl
 # Source11-md5:	9e34c85f1084afaa71590bc544dd4e76
 Source12:	http://www.irssi.org/files/irssi-%{irssi_ver}.tar.gz
-# Source12-md5:	226f194576895ff3075c164523806d06
+# Source12-md5:	7d9437f53209a61af4fe4c9c5528ffa7
 # http://scripts.irssi.org/scripts/gtrans.pl
 Source13:	gtrans.pl
 Patch0:		amarok_ssh-opt-user.patch
@@ -453,7 +453,8 @@ yawners toy.
 Skrypt ziew.
 
 %prep
-%setup -q -n %{name}
+%setup -qc
+mv %{name}/*.pl .
 cp -a %{SOURCE1} .
 cp -a %{SOURCE2} .
 cp -a %{SOURCE3} .
