@@ -29,7 +29,6 @@ Source8:	http://www.irssi.org/scripts/scripts/keepnick.pl
 Source9:	http://www.irssi.org/scripts/scripts/tab_stop.pl
 # Source9-md5:	ffa8d8381c41521365cacf9b1bb13951
 Source10:	forwardfix.pl
-# Source10-md5:	8bf85f7368933a4e0cb4f875bac28733
 Source11:	http://entermedia.pl/~shadzik/vtk/vtk.pl
 # Source11-md5:	9e34c85f1084afaa71590bc544dd4e76
 Source12:	http://www.irssi.org/files/irssi-%{irssi_ver}.tar.gz
@@ -481,9 +480,9 @@ mv irssi-%{irssi_ver}/scripts/*.pl .
 
 # make script for making readme
 for a in *.pl; do
-	sed -ne '/^\$VERSION/p;/^%IRSSI/,/);/p;' $a;
-	printf '$s = q/%s/;' $a
-	echo 'printf "%s:\t%s-%s\t%s\n", $s, $IRSSI{name}, $VERSION, $IRSSI{description};'
+	sed -ne '/^\$VERSION/p;/^%IRSSI/,/);/p;' $a
+	printf '$s = q/%s/;\n' $a
+	echo 'printf "%s:\\t%s-%s\\t%s\\n", $s, $IRSSI{name}, $VERSION, $IRSSI{description};'
 done > README.PL
 
 %build
@@ -492,7 +491,7 @@ done > README.PL
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_scriptdir}
-install *.pl $RPM_BUILD_ROOT%{_scriptdir}
+install -p *.pl $RPM_BUILD_ROOT%{_scriptdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
