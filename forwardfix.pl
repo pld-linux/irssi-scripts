@@ -56,8 +56,10 @@ Irssi::signal_add "event privmsg", sub {
 	#  special    =  %x5B-60 / %x7B-7D       ; "[", "]", "\", "`", "_", "^", "{", "|", "}"
 	my $re_nick = qr/[A-Za-z0-9\[\]\\\`\_\^\{\|\}\-]+/o;
 
-	map { split /:/,$_; $chanset->{lc $_[0]} = lc $_[1]; } split /[ ,]+/,Irssi::settings_get_str("forward_chanset");
-	map { split /:/,$_; $netmap->{lc $_[0]} = $_[1]; } split /[ ,]+/,Irssi::settings_get_str("forward_netmap");
+	my @forward_chanset = split(/[ ,]+/,Irssi::settings_get_str("forward_chanset"));
+	map { my @a=split /:/,$_; $chanset->{lc $a[0]} = lc $a[1]; } @forward_chanset;
+	my @forward_netmap = split(/[ ,]+/,Irssi::settings_get_str("forward_netmap"));
+	map { my @a=split /:/,$_; $netmap->{lc $a[0]} = $a[1]; } @forward_netmap;
 
 	my $now = time(); # yep compute foreach net, just to scope var
 	foreach my $n (keys %crude_hack) {
