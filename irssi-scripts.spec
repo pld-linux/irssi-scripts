@@ -1,3 +1,9 @@
+
+# WARNING:
+# Each subpackage has it own Version tag. So DO NOT DECREASE release number,
+# when changing Version of main package, because it will decrease EVR of
+# subpackages.
+
 %include	/usr/lib/rpm/macros.perl
 # scripts from base tarball
 %define		irssi_ver	0.8.14
@@ -5,7 +11,10 @@ Summary:	Irssi scripts pack
 Summary(pl.UTF-8):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.5
-Release:	6
+
+# DO NOT DECREASE, SEE WARNING NO TOP OF THIS FILE
+Release:	16
+
 License:	distributable
 Group:		Applications/Communications
 Source0:	http://ep09.pld-linux.org/~domelu/pld/%{name}/irssi-scripts.tar.gz
