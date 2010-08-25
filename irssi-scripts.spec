@@ -13,7 +13,7 @@ Name:		irssi-scripts
 Version:	0.5
 
 # DO NOT DECREASE, SEE WARNING NO TOP OF THIS FILE
-Release:	16
+Release:	17
 
 License:	distributable
 Group:		Applications/Communications
@@ -44,6 +44,8 @@ Source12:	http://www.irssi.org/files/irssi-%{irssi_ver}.tar.gz
 # Source12-md5:	7d9437f53209a61af4fe4c9c5528ffa7
 # http://scripts.irssi.org/scripts/gtrans.pl
 Source13:	gtrans.pl
+Source14:	http://cloud.github.com/downloads/hannu/irc-urls-client/ircurls_client.pl
+# Source14-md5:	a8a539725e9033ce3da812f4b06518b4
 Patch0:		amarok_ssh-opt-user.patch
 Patch1:		buf-nodumper.patch
 URL:		http://scripts.irssi.org/
@@ -63,6 +65,7 @@ Requires:	irssi-script-dns
 Requires:	irssi-script-forwardfix
 Requires:	irssi-script-gtrans
 Requires:	irssi-script-hideauth
+Requires:	irssi-script-ircurls
 Requires:	irssi-script-keepnick
 Requires:	irssi-script-kills
 Requires:	irssi-script-mail
@@ -278,6 +281,17 @@ password [#channel].
 Skrypt zapobiegający pokazywaniu haseł eggdropa w np. /msg botnick op
 password [#channel].
 
+%package -n irssi-script-ircurls
+Summary:	IRC-URls v2 client
+Version:	0.1.2
+License:	GPL v2
+Group:		Applications/Communications
+URL:		http://beta.irc-urls.net/
+Requires:	irssi
+
+%description -n irssi-script-ircurls
+Script to post urls from channel to irc-urls site.
+
 %package -n irssi-script-keepnick
 Summary:	keepnick script
 Summary(pl.UTF-8):	Skrypt keepnick
@@ -475,6 +489,7 @@ cp -a %{SOURCE9} .
 cp -a %{SOURCE10} .
 cp -a %{SOURCE11} .
 cp -a %{SOURCE13} .
+cp -a %{SOURCE14} .
 %patch0 -p1
 %{__tar} -xzf %{SOURCE12}
 mv irssi-%{irssi_ver}/scripts/*.pl .
@@ -560,6 +575,10 @@ rm -rf $RPM_BUILD_ROOT
 %files -n irssi-script-hideauth
 %defattr(644,root,root,755)
 %{_scriptdir}/hideauth.pl
+
+%files -n irssi-script-ircurls
+%defattr(644,root,root,755)
+%{_scriptdir}/ircurls_client.pl
 
 %files -n irssi-script-keepnick
 %defattr(644,root,root,755)
