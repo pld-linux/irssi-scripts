@@ -231,6 +231,10 @@ sub wgl_process {
     err(sprintf "wgl_process() wgl_func() %s", $@);
     return;
   }
+  if (!$result) {
+    err("wgl_process() empty result");
+    return;
+  }
 
   my $ok = 1;
   if ($result->error) {
