@@ -6,14 +6,14 @@
 
 %include	/usr/lib/rpm/macros.perl
 # scripts from base tarball
-%define		irssi_ver	0.8.14
+%define		irssi_ver	0.8.20
 Summary:	Irssi scripts pack
 Summary(pl.UTF-8):	Zestaw skryptów do Irssi
 Name:		irssi-scripts
 Version:	0.5
 
 # DO NOT DECREASE, SEE WARNING NO TOP OF THIS FILE
-Release:	17
+Release:	18
 
 License:	distributable
 Group:		Applications/Communications
@@ -40,12 +40,15 @@ Source9:	http://www.irssi.org/scripts/scripts/tab_stop.pl
 Source10:	forwardfix.pl
 Source11:	http://entermedia.pl/~shadzik/vtk/vtk.pl
 # Source11-md5:	9e34c85f1084afaa71590bc544dd4e76
-Source12:	http://www.irssi.org/files/irssi-%{irssi_ver}.tar.gz
-# Source12-md5:	7d9437f53209a61af4fe4c9c5528ffa7
+Source12:	https://github.com/irssi/irssi/releases/download/%{irssi_ver}/irssi-%{irssi_ver}.tar.gz
+# Source12-md5:	2b00a0492f52571772d030d1af3a043a
 # http://scripts.irssi.org/scripts/gtrans.pl
 Source13:	gtrans.pl
 Source14:	http://cloud.github.com/downloads/hannu/irc-urls-client/ircurls_client.pl
 # Source14-md5:	a8a539725e9033ce3da812f4b06518b4
+Source15:	https://scripts.irssi.org/scripts/buf.pl
+# Source15-md5:	648c07b52d4d495726042329fa670649
+# Source15:
 Patch0:		amarok_ssh-opt-user.patch
 Patch1:		buf-nodumper.patch
 URL:		http://scripts.irssi.org/
@@ -73,10 +76,8 @@ Requires:	irssi-script-mlock
 Requires:	irssi-script-nocaps
 Requires:	irssi-script-people
 Requires:	irssi-script-quitmsg
-Requires:	irssi-script-sb_search
 Requires:	irssi-script-scriptassist
 Requires:	irssi-script-seen
-Requires:	irssi-script-splitlong
 Requires:	irssi-script-tab_stop
 Requires:	irssi-script-usercount
 Requires:	irssi-script-ziew
@@ -152,7 +153,7 @@ Automatically rejoin to channel after kicked.
 
 %package -n irssi-script-buf
 Summary:	Scroll buffer restorer
-Version:	2.13
+Version:	2.20
 License:	Public Domain
 Group:		Applications/Communications
 Requires:	irssi >= 0.8.13-2
@@ -377,16 +378,6 @@ Requires:	irssi >= 0.8.13-2
 %description -n irssi-script-quitmsg
 Random quit messages.
 
-%package -n irssi-script-sb_search
-Summary:	Search in your scrollback, scroll to a match
-Version:	1.0
-License:	GPL v2+
-Group:		Applications/Communications
-Requires:	irssi >= 0.8.13-2
-
-%description -n irssi-script-sb_search
-Search in your scrollback, scroll to a match.
-
 %package -n irssi-script-scriptassist
 Summary:	Keeps your scripts on the cutting edge
 Version:	2003020803
@@ -410,16 +401,6 @@ Tell people when other people were online.
 
 %description -n irssi-script-seen -l pl.UTF-8
 Skrypt seen informuje ludzi o tym, że inni są online.
-
-%package -n irssi-script-splitlong
-Summary:	Split overlong PRIVMSGs to msgs with length allowed by ircd
-Version:	0.20
-License:	Public Domain
-Group:		Applications/Communications
-Requires:	irssi >= 0.8.13-2
-
-%description -n irssi-script-splitlong
-Split overlong PRIVMSGs to msgs with length allowed by ircd
 
 %package -n irssi-script-tab_stop
 Summary:	tab_stop script
@@ -494,6 +475,7 @@ cp -a %{SOURCE14} .
 %{__tar} -xzf %{SOURCE12}
 mv irssi-%{irssi_ver}/scripts/*.pl .
 %patch1 -p1
+cp -a %{SOURCE15} .
 
 # make rpm scan perl deps: add perl preamble
 # if anyone has better idea/implementation, go ahead
@@ -608,10 +590,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_scriptdir}/quitmsg.pl
 
-%files -n irssi-script-sb_search
-%defattr(644,root,root,755)
-%{_scriptdir}/sb_search.pl
-
 %files -n irssi-script-scriptassist
 %defattr(644,root,root,755)
 %{_scriptdir}/scriptassist.pl
@@ -619,10 +597,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -n irssi-script-seen
 %defattr(644,root,root,755)
 %{_scriptdir}/seen.pl
-
-%files -n irssi-script-splitlong
-%defattr(644,root,root,755)
-%{_scriptdir}/splitlong.pl
 
 %files -n irssi-script-tab_stop
 %defattr(644,root,root,755)
