@@ -4,7 +4,6 @@
 # when changing Version of main package, because it will decrease EVR of
 # subpackages.
 
-%include	/usr/lib/rpm/macros.perl
 # scripts from base tarball
 %define		irssi_ver	0.8.20
 Summary:	Irssi scripts pack
