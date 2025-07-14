@@ -470,10 +470,10 @@ cp -a %{SOURCE10} .
 cp -a %{SOURCE11} .
 cp -a %{SOURCE13} .
 cp -a %{SOURCE14} .
-%patch0 -p1
+%patch -P0 -p1
 %{__tar} -xzf %{SOURCE12}
 mv irssi-%{irssi_ver}/scripts/*.pl .
-%patch1 -p1
+%patch -P1 -p1
 cp -a %{SOURCE15} .
 
 # make rpm scan perl deps: add perl preamble
